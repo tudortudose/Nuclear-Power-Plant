@@ -9,7 +9,7 @@
     define('APPROOT', dirname(dirname(__FILE__)));
 
     //URLROOT (Dynamic links)
-    define('URLROOT', 'http://localhost/mvcloginregister');
+    define('URLROOT', 'http://localhost/NuclearGitProject/Nuclear-Power-Plant');
 
     //Sitename
     define('SITENAME', 'Nuclear Power Plant Manager');
