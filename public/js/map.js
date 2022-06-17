@@ -51,6 +51,23 @@ function initMap() {
 
             marker.addListener("click", () => {
                 infowindow.open(map, marker);
+
+                var xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+
+                xhr.addEventListener("readystatechange", function() {
+                    if(this.readyState === 4) {
+                        var response = JSON.parse(this.responseText).current.condition.text;
+                        alert(response);
+                    }
+                    });
+                
+                    console.log(mapsMouseEvent.latLng.lat()+","+mapsMouseEvent.latLng.lng());
+                    xhr.open("GET", "http://api.weatherapi.com/v1/current.json?key=ecfaaa0d77c544219a3100819221706&q="
+                    +mapsMouseEvent.latLng.lat()+","+mapsMouseEvent.latLng.lng()+"&aqi=yes");
+                
+                    xhr.send();
+
             });
             marker.addListener("dblclick", () => {
                 window.location.href = "http://localhost/NuclearGitProject/Nuclear-Power-Plant/Pages/about";

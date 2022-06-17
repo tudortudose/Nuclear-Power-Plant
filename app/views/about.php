@@ -17,7 +17,7 @@ require APPROOT . '/views/includes/head.php';
                             <span>Bow before me</span>
                         </h2>
                         <div class="about_card_content_image_box">
-                            <img src="../../../ale.jpg">
+                            <img src="<?php echo URLROOT ?> /public/img/ale.jpg">
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ require APPROOT . '/views/includes/head.php';
                             <span>It's me bitches</span>
                         </h2>
                         <div class="about_card_content_image_box">
-                            <img src="../../../me.jpg">
+                            <img src="<?php echo URLROOT ?> /public/img/me.jpg">
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ require APPROOT . '/views/includes/head.php';
                             <span>Smoke weed everyday</span>
                         </h2>
                         <div class="about_card_content_image_box">
-                            <img src="../../../dos.jpg">
+                            <img src="<?php echo URLROOT ?> /public/img/dos.jpg">
                         </div>
                     </div>
                 </div>
