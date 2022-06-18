@@ -23,6 +23,11 @@
       $url = $this->getUrl();
       //$this->debug_to_console(ucwords($url[0]));
 
+      //remove irrelevant root path:
+      while(count($url)>1 && !file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
+        \array_splice($url,0,1);
+      }
+
       // Look in BLL for first value
       if(!is_null($url) && file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
         // If exists, set as controller
@@ -50,15 +55,22 @@
       }
 
       // Get params
-      $this->params = $url ? array_values($url) : [];
+      if(isset($_SERVER["REQUEST_URI"])){
+        parse_str(parse_url($_SERVER["REQUEST_URI"], PHP_URL_QUERY), $this->params);
+      }
+      else{
+        $this->params = [];
+      }
+      //$this->debug_to_console($this->params);
 
       // Call a callback with array of params
       call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
     }
 
     public function getUrl(){
-      if(isset($_GET['url'])){
-        $url = rtrim($_GET['url'], '/');
+      if(isset($_SERVER["REQUEST_URI"])){
+        //$this->debug_to_console(parse_url($_SERVER["REQUEST_URI"],PHP_URL_PATH));
+        $url = rtrim(parse_url($_SERVER["REQUEST_URI"],PHP_URL_PATH), '/');
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $url = explode('/', $url);
         return $url;

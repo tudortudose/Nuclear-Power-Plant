@@ -27,4 +27,12 @@ class Pages extends Controller {
 
         $this->view('map');
     }
+
+    public function reactor(){
+        $data = [
+            'title' => 'Nuclear Power Plant Specifications'
+        ];
+
+        $this->view('reactor');
+    }
 }

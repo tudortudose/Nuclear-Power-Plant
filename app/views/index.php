@@ -1,16 +1,16 @@
 <?php
-    //redirectare user catre pagina de logare:
-    if(!isset($_SESSION['user_id'])){
-        header("location: " . URLROOT . '/users/register');
-        exit;
-    }
+//redirectare user catre pagina de logare:
+if (!isset($_SESSION['user_id'])) {
+    header("location: " . URLROOT . '/users/register');
+    exit;
+}
 
-   require APPROOT . '/views/includes/head.php';
+require APPROOT . '/views/includes/head.php';
 ?>
 
 <div id="section-landing">
     <?php
-       require APPROOT . '/views/includes/navigation.php';
+    require APPROOT . '/views/includes/navigation.php';
     ?>
 
     <div class="wrapper-landing">

@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.reactor_container {
+  top: 10%;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reactor_container_image {
+  position: relative;
+}
+
+.reactor_panel{
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.reactor_additional{
+  height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: flex-end;
+}
+
+.reactor_control{
+  height: 250px;
+  position: relative;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.reactor_wrapper_input {
+  margin: auto;
+}
+
+.slider,
+.slidervertical {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+  z-index: 100;
+}
+
+/* slidershell exists only
+  to provide a positioning context for the range input and other elements.*/
+.reactor_input_label {
+  vertical-align: middle;
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.reactor_input_label.low {
+  color: #36f0b2;
+  font-weight: bold;
+  text-shadow: 0.02em 0.02em 0.5em #36f0b2;
+}
+
+.reactor_input_label.high {
+  color: #df380e;
+  font-weight: bold;
+  text-shadow: 0.02em 0.02em 0.5em #df380e;
+}
+
+.slidershell {
+  margin: 0 20px;
+  vertical-align: middle;
+  display: inline-block;
+  border: 0 none;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+  filter: url(#goo);
+}
+
+/* .slidertrack is the visible track on which the user drags the thumb button. */
+.slidertrack {
+  border-radius: 4px;
+  position: absolute;
+  background: #df380e;
+}
+
+/* .sliderfill adds color (or a gradient as seen here) to the track as the user 
+      drags the thumb. */
+.sliderfill {
+  position: absolute;
+  pointer-events: none;
+  background: #36f0b2;
+  border-radius: 4px;
+}
+
+/* .sliderthumb can be any css you like including an image. 
+      The dimensions must match those found in the rule for 
+      input[type=range]::-webkit-slider-thumb. */
+.sliderthumb {
+  width: 30px;
+  height: 30px;
+  display: block;
+  background: white;
+  border-radius: 50%;
+  background-position: 0px 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border: 0 none;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* .slidervalue can be styled as you see fit */
+input[type="range"] {
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0px;
+  padding: 0px;
+  border: 0 none;
+  background: transparent;
+  color: transparent;
+  overflow: visible;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+
+/* Make the thumbs the same size as your custom sliderthumb. 
+      they will not be visible but they will be draggable.    */
+input[type="range"]::-webkit-slider-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 0px;
+  border: 0 none;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+svg {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.reactor_button_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.reactor_button_container:after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.reactor_button_container h2 {
+  margin-right: 1em;
+  text-align: center;
+  color: #e61515b6;
+}
+
+.reactor_button_plus {
+  position: relative;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  color: #1a1a1a;
+  background: #e61515;
+  border-radius: 50%;
+  border: none;
+  transition: box-shadow 400ms cubic-bezier(0.2, 0, 0.7, 1), transform 200ms cubic-bezier(0.2, 0, 0.7, 1);
+}
+
+.reactor_button_plus:after {
+  content: "+";
+  font-size: 2.5em;
+  line-height: 1.1em;
+}
+
+.reactor_button_plus:hover {
+  cursor: grab;
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px 15px rgba(201, 35, 35, 0.4), 0 0 1px 30px rgba(204, 24, 24, 0.1), 0 0 1px 45px rgba(233, 31, 31, 0.1);
+}
+
+@media (max-width: 610px) {
+  .label {
+    display: none;
+  }
+
+  .slidershell {
+    margin: 0;
+  }
+}
