@@ -4,25 +4,25 @@ require APPROOT . '/views/includes/head.php';
 <link rel="stylesheet" href="<?php echo URLROOT ?> /public/css/map.css" />
 
 <div id="section-landing">
+
+    <div id="map"></div>
+    
     <?php
     require APPROOT . '/views/includes/navigation.php';
     ?>
 
-
-    <div id="map"></div>
-
     <button class="add-plant">Add nuclear power plant</button>
 
     <div class="create-plant-container">
-        <div class="form">
-            <div class="create-plant" id="create-plant-info">
-                <h1>Create Power Plant</h1>
-                <div id="create-plant-form">
-                    <input type="text" placeholder="Name" />
-                    <input type="text" placeholder="Number of reactors" />
-                    <input type="text" placeholder="Total power(GW)" />
-                    <button class="place-it">Place it on the map</button>
-                </div>
+        <div class="create-plant" id="create-plant-info">
+            <h1>Create Power Plant</h1>
+            <div class="create-plant-form">
+                <input id="input1" type="text" name="autor_id" placeholder="autor_id" />
+                <input id="input2" type="text" name="nume" placeholder="nume" />
+                <input id="input3" type="text" name="numar_reactoare" placeholder="numar_reactoare" />
+                <input id="input4" type="text" name="putere_reactor" placeholder="putere_reactor" />
+                <input id="input5" type="file" name="imagine" placeholder="image" />
+                <button class="place-it">Place it on the map</button>
             </div>
         </div>
     </div>
