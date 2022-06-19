@@ -246,6 +246,7 @@ function initMap() {
     // the click inside the infowindow.
     map.addListener("click", (mapsMouseEvent) => {
         if (can_place) {
+            can_place = false;
             setAltitude(mapsMouseEvent.latLng.lat(), mapsMouseEvent.latLng.lng());
         }
 
