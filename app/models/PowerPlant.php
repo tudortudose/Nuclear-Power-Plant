@@ -10,18 +10,18 @@ class PowerPlant
     public function insert($data)
     {
         echo "<script>console.log('Debug Objects: " . "baaaaaaaa" . "' );</script>";
-        $this->db->query('INSERT INTO centrale ' .
-            '(autor_id, nume, numar_reactoare, putere_reactor, altitudine, latitudine, longitudine) ' .
-            'VALUES(:autor_id, :nume, :numar_reactoare, :putere_reactor, :altitudine, :latitudine, :longitudine)');
+        $this->db->query('INSERT INTO power_plants ' .
+            '(author_id, name, reactorCount, reactorPower, altitude, latitude, longitude) ' .
+            'VALUES(:author_id, :name, :reactorCount, :reactorPower, :altitude, :latitude, :longitude)');
 
         //Bind values
-        $this->db->bind(':autor_id', $data['autor_id']);
-        $this->db->bind(':nume', $data['nume']);
-        $this->db->bind(':numar_reactoare', $data['numar_reactoare']);
-        $this->db->bind(':putere_reactor', $data['putere_reactor']);
-        $this->db->bind(':altitudine', $data['altitudine']);
-        $this->db->bind(':latitudine', $data['latitudine']);
-        $this->db->bind(':longitudine', $data['longitudine']);
+        $this->db->bind(':author_id', $data['author_id']);
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':reactorCount', $data['reactorCount']);
+        $this->db->bind(':reactorPower', $data['reactorPower']);
+        $this->db->bind(':altitude', $data['altitude']);
+        $this->db->bind(':latitude', $data['latitude']);
+        $this->db->bind(':longitude', $data['longitude']);
 
         //Execute function
         if ($this->db->execute()) {
@@ -35,7 +35,7 @@ class PowerPlant
 
     public function getById($id)
     {
-        $this->db->query('SELECT * FROM centrale WHERE id=:id');
+        $this->db->query('SELECT * FROM power_plants WHERE id=:id');
 
         //Bind value
         $this->db->bind(':id', $id);
@@ -47,9 +47,23 @@ class PowerPlant
         return $result;
     }
 
+    public function getByName($name)
+    {
+        $this->db->query('SELECT * FROM power_plants WHERE name=:name');
+
+        //Bind value
+        $this->db->bind(':name', $name);
+
+        $this->db->execute();
+
+        $result = $this->db->single();
+
+        return $result;
+    }
+
     public function getAll()
     {
-        $this->db->query('SELECT * FROM centrale');
+        $this->db->query('SELECT * FROM power_plants');
 
         $this->db->execute();
 

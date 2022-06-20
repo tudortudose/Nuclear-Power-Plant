@@ -15,6 +15,34 @@ body {
     height: 100%;
 }
 
+.search-container {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.search-container input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+.search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background: #ccc;
+}
+
 .add-plant {
     appearance: button;
     background-color: #4D4AE8;
@@ -136,6 +164,17 @@ body {
     border: none;
     background-color: #31313194;
     color: rgb(185, 185, 185);
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 1.5px;
+    padding-left: 20px;
+}
+
+.create-plant-form p {
+    font-size: 14px;
+    width: 260px;
+    font-weight: 300;
+    border: none;
+    color: crimson;
     font-family: 'Helvetica Neue', sans-serif;
     letter-spacing: 1.5px;
     padding-left: 20px;

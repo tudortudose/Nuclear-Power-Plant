@@ -8,15 +8,7 @@ class PowerPlants extends Controller
 
     public function insert($params)
     {
-        $data = [
-            'autor_id' => '',
-            'nume' => '',
-            'numar_reactoare' => '',
-            'putere_reactor' => '',
-            'altitudine' => '',
-            'latitudine' => '',
-            'longitudine' => ''
-        ];
+        echo "<script>console.log('Debug session user: " . $_SESSION['user_id'] . "' );</script>";
 
         foreach ($params as $param) {
 
@@ -28,16 +20,14 @@ class PowerPlants extends Controller
             // Sanitize POST data
 
             $data = [
-                'autor_id' => trim($params['author_id']),
-                'nume' => trim($params['nume']),
-                'numar_reactoare' => trim($params['numar_reactoare']),
-                'putere_reactor' => trim($params['putere_reactor']),
-                'altitudine' => trim($params['altitudine']),
-                'latitudine' => trim($params['latitudine']),
-                'longitudine' => trim($params['longitudine'])
+                'author_id' => $_SESSION['user_id'],
+                'name' => trim($params['name']),
+                'reactorCount' => trim($params['reactorCount']),
+                'reactorPower' => trim($params['reactorPower']),
+                'altitude' => trim($params['altitude']),
+                'latitude' => trim($params['latitude']),
+                'longitude' => trim($params['longitude'])
             ];
-
-            $nameValidation = "/^[a-zA-Z0-9]*$/";
 
             if (1 == 1) {
                 if ($this->plantModel->insert($data)) {
@@ -53,6 +43,20 @@ class PowerPlants extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
             $results = $this->plantModel->getById($params['id']);
+
+            $json_string = json_encode($results, JSON_PRETTY_PRINT);
+
+            print_r($json_string);
+
+            return $results;
+        }
+    }
+
+    public function getByName($params)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+            $results = $this->plantModel->getByName($params['name']);
 
             $json_string = json_encode($results, JSON_PRETTY_PRINT);
 

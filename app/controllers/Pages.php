@@ -22,10 +22,13 @@ class Pages extends Controller {
 
     public function map() {
         $data = [
-            'title' => 'Map page'
+            'authorIdError' => '',
+            'nameError' => '',
+            'reactorCountError' => '',
+            'reactorPowerError' => ''
         ];
 
-        $this->view('map');
+        $this->view('map', $data);
     }
 
     public function reactor(){

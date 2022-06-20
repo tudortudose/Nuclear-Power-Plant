@@ -1,14 +1,14 @@
-create table centrale(
+create table power_plants(
 id int unsigned NOT NULL AUTO_INCREMENT,
-autor_id int unsigned NOT NULL,
-nume varchar(256) NOT NULL,
-numar_reactoare int NOT NULL,
-putere_reactor float NOT NULL,
-altitudine float NOT NULL,
-latitudine float NOT NULL,
-longitudine float NOT NULL,
+author_id int unsigned NOT NULL,
+name varchar(256) NOT NULL unique,
+reactorCount int NOT NULL,
+reactorPower float NOT NULL,
+altitude float NOT NULL,
+latitude float NOT NULL,
+longitude float NOT NULL,
 primary key (id),
-foreign key(autor_id)
+foreign key(author_id)
 references users(id)
 );
 
