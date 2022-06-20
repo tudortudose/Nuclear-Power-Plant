@@ -15,7 +15,8 @@ require APPROOT . '/views/includes/head.php';
         <div class="reactor_panel">
             <div class="reactor_control">
                 <div class="reactor_wrapper_input">
-                    <div class="reactor_input_label low">Low Power</div>
+                    <div class="reactor_input_label icon">&#10052;</div>
+                    <div class="reactor_input_label low">Low</div>
                     <div class="slidershell" id="slidershell1">
                         <div class="slidertrack" id="slidertrack1"></div>
                         <div class="sliderfill" id="sliderfill1"></div>
@@ -27,7 +28,8 @@ require APPROOT . '/views/includes/head.php';
                     <div class="reactor_input_label high">High Power</div>
                 </div>
                 <div class="reactor_wrapper_input">
-                    <div class="reactor_input_label low">Low Power</div>
+                    <div class="reactor_input_label icon">&#9762;</div>
+                    <div class="reactor_input_label low">Low</div>
                     <div class="slidershell" id="slidershell2">
                         <div class="slidertrack" id="slidertrack2"></div>
                         <div class="sliderfill" id="sliderfill2"></div>
@@ -39,7 +41,8 @@ require APPROOT . '/views/includes/head.php';
                     <div class="reactor_input_label high">High Power</div>
                 </div>
                 <div class="reactor_wrapper_input">
-                    <div class="reactor_input_label low">Low Power</div>
+                    <div class="reactor_input_label icon">&#9788;</div>
+                    <div class="reactor_input_label low">Low</div>
                     <div class="slidershell" id="slidershell3">
                         <div class="slidertrack" id="slidertrack3"></div>
                         <div class="sliderfill" id="sliderfill3"></div>
@@ -52,23 +55,61 @@ require APPROOT . '/views/includes/head.php';
                 </div>
                 <svg>
                     <defs>
-                        <filter id="goo">
-                            <feGaussianBlur id="blur" in="SourceGraphic" result="blur" stdDeviation="10" />
-                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
+                        <filter id="goo1">
+                            <feGaussianBlur id="blur1" in="SourceGraphic" result="blur1" stdDeviation="10" />
+                            <feColorMatrix in="blur1" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
+                        </filter>
+                        <filter id="goo2">
+                            <feGaussianBlur id="blur2" in="SourceGraphic" result="blur2" stdDeviation="10" />
+                            <feColorMatrix in="blur2" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
+                        </filter>
+                        <filter id="goo3">
+                            <feGaussianBlur id="blur3" in="SourceGraphic" result="blur3" stdDeviation="10" />
+                            <feColorMatrix in="blur3" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
                         </filter>
                     </defs>
                 </svg>
             </div>
             <div class="reactor_additional">
+                <div class="reactor_additional_input">
+                    <input type="number" id="nuclear_demand" required class="input">
+                    <label for="nuclear_demand" class="reactor_additional_input_label">Power Demand</label>
+                </div>
                 <div class="reactor_button_container">
                     <h2>Initiate &rarr;</h2>
-                    <button onclick="location.href='<?php echo URLROOT ?>/index';" class="reactor_button_plus"></button>
+                    <!-- <button onclick="location.href='<?php //echo URLROOT 
+                                                            ?>/index';" class="reactor_button_plus" id="reactor_btn"></button> -->
+                    <button class="reactor_button_plus" id="reactor_btn"></button>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="reactor_modal" class="modal">
+        <div class="reactor_modal_content">
+            <span class="close">&times;</span>
+            <p>Monitoring current nuclear power-plant..</p>
+            <canvas id="weather_chart"></canvas><br>
+            <button id="weather_chart_export">
+                Export to PNG
+            </button><br>
+            <canvas id="reactor_config_chart"></canvas><br>
+            <button id="reactor_config_chart_export">
+                Export to PNG
+            </button><br>
+            <canvas id="efficiency_chart"></canvas><br>
+            <button id="efficiency_chart_export">
+                Export to PNG
+            </button><br>
+            <canvas id="health_chart"></canvas><br>
+            <button id="health_chart_export">
+                Export to PNG
+            </button><br>
         </div>
     </div>
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
 <script src="<?php echo URLROOT ?>/public/js/reactor.js">
 </script>

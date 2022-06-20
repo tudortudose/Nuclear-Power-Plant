@@ -12,7 +12,7 @@ body {
 }
 
 .reactor_container {
-  top: 10%;
+  top: 5%;
   position: relative;
   text-align: center;
   display: flex;
@@ -76,6 +76,13 @@ body {
   letter-spacing: 0.02em;
 }
 
+.reactor_input_label.icon{
+  font-size: 2.5em;
+  color: #36f0b2;
+  font-weight: bold;
+  text-shadow: 0.02em 0.02em 0.5em #36f0b2;
+}
+
 .reactor_input_label.low {
   color: #36f0b2;
   font-weight: bold;
@@ -97,7 +104,7 @@ body {
   left: 0px;
   top: 0px;
   overflow: visible;
-  filter: url(#goo);
+  /* filter: url(#goo);  */
 }
 
 /* .slidertrack is the visible track on which the user drags the thumb button. */
@@ -173,6 +180,40 @@ svg {
   top: 0;
 }
 
+.reactor_additional_input {
+  position: relative;
+  color: #fff;
+}
+
+.input {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  color: #fff;
+  background-color: transparent;
+  outline: 2px solid #fff;
+}
+
+.reactor_additional_input_label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transform-origin: left;
+  transition: transform .25s;
+}
+
+.input:focus~.reactor_additional_input_label,
+.input:valid~.reactor_additional_input_label {
+  transform: translate(0, -30px) scale(.8);
+  color: #36f0b2;
+}
+
+.input:is(:focus, :valid) {
+  outline-color: #36f0b2;
+}
+
 .reactor_button_container {
   position: relative;
   width: 100%;
@@ -221,6 +262,76 @@ svg {
   cursor: grab;
   transform: rotate(45deg);
   box-shadow: 0 0 1px 15px rgba(201, 35, 35, 0.4), 0 0 1px 30px rgba(204, 24, 24, 0.1), 0 0 1px 45px rgba(233, 31, 31, 0.1);
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.reactor_modal_content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  align-self: flex-end;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#weather_chart{
+  width: 100%;
+}
+
+#weather_chart_export{
+  align-self: center;
+}
+
+#reactor_config_chart{
+  width: 100%;
+}
+
+#reactor_config_chart_export{
+  align-self: center;
+}
+
+#efficiency_chart{
+  width: 100%;
+}
+
+#efficiency_chart_export{
+  align-self: center;
+}
+
+#health_chart{
+  width: 100%;
+}
+
+#health_chart_export{
+  align-self: center;
 }
 
 @media (max-width: 610px) {
