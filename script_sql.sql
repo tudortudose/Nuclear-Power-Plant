@@ -20,4 +20,20 @@ CREATE TABLE users (
   PRIMARY KEY (id),
   UNIQUE KEY username (username),
   UNIQUE KEY email (email)
-)
+);
+
+CREATE TABLE configurations (
+  id int NOT NULL AUTO_INCREMENT,
+  id_centrala int unsigned DEFAULT NULL,
+  reactoare_active int DEFAULT NULL,
+  temperatura_nucleu int DEFAULT NULL,
+  putere_racire int DEFAULT NULL,
+  putere_produsa int DEFAULT NULL,
+  putere_ceruta int DEFAULT NULL,
+  vreme varchar(150) DEFAULT NULL,
+  data_examinare datetime DEFAULT NULL,
+  putere_energie int DEFAULT NULL,
+  PRIMARY KEY (id),
+  KEY id_centrala (id_centrala),
+  CONSTRAINT configurations_ibfk_1 FOREIGN KEY (id_centrala) REFERENCES power_plants (id) ON DELETE CASCADE
+);
