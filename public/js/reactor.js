@@ -48,130 +48,47 @@ var btn = document.getElementById("reactor_btn");
 var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function () {
-  //first get request for health:
-  var health = 100;
-  var xhr1 = new XMLHttpRequest();
-  xhr1.withCredentials = false;
-
   const params = new URLSearchParams(window.location.search);
   var idCentrala = 13; //valoare default pentru id centrala
   if (params.has("id")) {
     idCentrala = params.get("id");
   }
 
-  xhr1.addEventListener("readystatechange", function () {
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = false;
+
+  xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
-      //console.log(this.statusText+' '+JSON.parse(this.responseText).reactoare_active);
-      health = JSON.parse(this.responseText).reactoare_active;
-      health = health > 0 ? health - 1 : 0;
-
-      //get request for geographic coordinates for weather:
-      var latitude;
-      var longitude;
-      var xhr2 = new XMLHttpRequest();
-      xhr2.withCredentials = false;
-
-      xhr2.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-          latitude = JSON.parse(this.responseText).latitude;
-          longitude = JSON.parse(this.responseText).longitude;
-          //console.log('herehere'+latitude+' '+longitude);
-
-          //console.log(latitude + " " + longitude + "merge");
-          var weather;
-          var xhr3 = new XMLHttpRequest();
-          xhr3.withCredentials = false;
-
-          xhr3.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-              weather = JSON.parse(this.responseText).current.condition.text;
-              //console.log("herherher" + weather);
-
-              //then post request with new inputs:
-              var xhr = new XMLHttpRequest();
-              xhr.withCredentials = false;
-
-              xhr.addEventListener("readystatechange", function () {
-                if (this.readyState === 4) {
-                  console.log(this.status + " " + this.responseText);
-                  weather_chart();
-                  reactor_config_chart();
-                  efficency_chart();
-                  health_chart();
-                }
-              });
-
-              var coreTemperature = document.getElementById("slider2").value;
-              var coolTemperature = document.getElementById("slider1").value;
-              var powerOutput = document.getElementById("slider3").value;
-              var powerDemand = document.getElementById("nuclear_demand").value;
-              if (powerDemand === "") {
-                powerDemand = 0;
-              }
-
-              xhr.open(
-                "POST",
-                "http://localhost/NuclearGitProject/Nuclear-Power-Plant/configurations/insert?id_centrala=" +
-                  idCentrala +
-                  "&reactoare_active=" +
-                  health +
-                  "&temperatura_nucleu=" +
-                  coreTemperature +
-                  "&putere_racire=" +
-                  coolTemperature +
-                  "&putere_produsa=" +
-                  coreTemperature * coolTemperature * powerOutput +
-                  "&putere_ceruta=" +
-                  powerDemand +
-                  "&vreme=" +
-                  weather +
-                  "&putere_energie=" +
-                  powerOutput,
-                true
-              );
-              xhr.setRequestHeader(
-                "Content-Type",
-                "application/x-www-form-urlencoded"
-              );
-
-              xhr.send();
-            }
-          });
-
-          xhr3.open(
-            "GET",
-            "http://api.weatherapi.com/v1/current.json?key=ecfaaa0d77c544219a3100819221706&q=" +
-              latitude +
-              "," +
-              longitude +
-              "&aqi=yes"
-          );
-
-          xhr3.send();
-        }
-      });
-
-      xhr2.open(
-        "GET",
-        "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/getbyid?id=" +
-          idCentrala,
-        true
-      );
-      xhr2.setRequestHeader("Content-Type", "application/json");
-
-      xhr2.send();
+      console.log(this.status + " " + this.responseText);
     }
   });
 
-  xhr1.open(
-    "GET",
-    "http://localhost/NuclearGitProject/Nuclear-Power-Plant/configurations/health?id=" +
-      idCentrala,
+  var coreTemperature = document.getElementById("slider2").value;
+  var coolTemperature = document.getElementById("slider1").value;
+  var powerOutput = document.getElementById("slider3").value;
+  var powerDemand = document.getElementById("nuclear_demand").value;
+  if (powerDemand === "") {
+    powerDemand = 0;
+  }
+
+  xhr.open(
+    "POST",
+    "http://localhost/NuclearGitProject/Nuclear-Power-Plant/states/insert?id_centrala=" +
+      idCentrala +
+      "&temperatura_nucleu=" +
+      coreTemperature +
+      "&putere_racire=" +
+      coolTemperature +
+      "&putere_energie=" +
+      powerOutput +
+      "&putere_ceruta=" +
+      powerDemand +
+      "&putere_produsa=" +
+      coreTemperature * coolTemperature * powerOutput,
     true
   );
-  xhr1.setRequestHeader("Content-Type", "application/json");
-
-  xhr1.send();
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send();
 
   //then show statistics of current nuclear plant:
   modal.style.display = "block";
@@ -524,3 +441,136 @@ function health_chart() {
 
   xhr.send();
 }
+
+weather_chart();
+reactor_config_chart();
+efficency_chart();
+health_chart();
+
+/*
+  //FOR CHRON JOBS UPDATING CONFIGURATIONS:
+  //first get request for health:
+  var health = 100;
+  var xhr1 = new XMLHttpRequest();
+  xhr1.withCredentials = false;
+
+  const params = new URLSearchParams(window.location.search);
+  var idCentrala = 13; //valoare default pentru id centrala
+  if (params.has("id")) {
+    idCentrala = params.get("id");
+  }
+
+  xhr1.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      //console.log(this.statusText+' '+JSON.parse(this.responseText).reactoare_active);
+      health = JSON.parse(this.responseText).reactoare_active;
+      health = health > 0 ? health - 1 : 0;
+
+      //get request for geographic coordinates for weather:
+      var latitude;
+      var longitude;
+      var xhr2 = new XMLHttpRequest();
+      xhr2.withCredentials = false;
+
+      xhr2.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          latitude = JSON.parse(this.responseText).latitude;
+          longitude = JSON.parse(this.responseText).longitude;
+          //console.log('herehere'+latitude+' '+longitude);
+
+          //console.log(latitude + " " + longitude + "merge");
+          var weather;
+          var xhr3 = new XMLHttpRequest();
+          xhr3.withCredentials = false;
+
+          xhr3.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+              weather = JSON.parse(this.responseText).current.condition.text;
+              //console.log("herherher" + weather);
+
+              //then post request with new inputs:
+              var xhr = new XMLHttpRequest();
+              xhr.withCredentials = false;
+
+              xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                  console.log(this.status + " " + this.responseText);
+                  weather_chart();
+                  reactor_config_chart();
+                  efficency_chart();
+                  health_chart();
+                }
+              });
+
+              var coreTemperature = document.getElementById("slider2").value;
+              var coolTemperature = document.getElementById("slider1").value;
+              var powerOutput = document.getElementById("slider3").value;
+              var powerDemand = document.getElementById("nuclear_demand").value;
+              if (powerDemand === "") {
+                powerDemand = 0;
+              }
+
+              xhr.open(
+                "POST",
+                "http://localhost/NuclearGitProject/Nuclear-Power-Plant/configurations/insert?id_centrala=" +
+                  idCentrala +
+                  "&reactoare_active=" +
+                  health +
+                  "&temperatura_nucleu=" +
+                  coreTemperature +
+                  "&putere_racire=" +
+                  coolTemperature +
+                  "&putere_produsa=" +
+                  coreTemperature * coolTemperature * powerOutput +
+                  "&putere_ceruta=" +
+                  powerDemand +
+                  "&vreme=" +
+                  weather +
+                  "&putere_energie=" +
+                  powerOutput,
+                true
+              );
+              xhr.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-urlencoded"
+              );
+
+              xhr.send();
+            }
+          });
+
+          xhr3.open(
+            "GET",
+            "http://api.weatherapi.com/v1/current.json?key=ecfaaa0d77c544219a3100819221706&q=" +
+              latitude +
+              "," +
+              longitude +
+              "&aqi=yes"
+          );
+
+          xhr3.send();
+        }
+      });
+
+      xhr2.open(
+        "GET",
+        "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/getbyid?id=" +
+          idCentrala,
+        true
+      );
+      xhr2.setRequestHeader("Content-Type", "application/json");
+
+      xhr2.send();
+    }
+  });
+
+  xhr1.open(
+    "GET",
+    "http://localhost/NuclearGitProject/Nuclear-Power-Plant/configurations/health?id=" +
+      idCentrala,
+    true
+  );
+  xhr1.setRequestHeader("Content-Type", "application/json");
+
+  xhr1.send();
+ */
