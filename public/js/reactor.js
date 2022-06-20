@@ -73,8 +73,8 @@ btn.onclick = function () {
 
       xhr2.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-          latitude = JSON.parse(this.responseText).latitudine;
-          longitude = JSON.parse(this.responseText).longitudine;
+          latitude = JSON.parse(this.responseText).latitude;
+          longitude = JSON.parse(this.responseText).longitude;
           //console.log('herehere'+latitude+' '+longitude);
 
           //console.log(latitude + " " + longitude + "merge");
