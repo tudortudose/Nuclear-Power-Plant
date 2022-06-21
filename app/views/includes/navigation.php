@@ -16,16 +16,16 @@
             <a href="<?php echo URLROOT; ?>/index">Home</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/Pages/about">About</a>
+            <a href="<?php echo URLROOT; ?>/Pages/about">Contact</a>
         </li>
         <li>
             <a href="<?php echo URLROOT; ?>/Pages/map">Map</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/Pages/reactor">Blog</a>
+            <a href="<?php echo URLROOT; ?>/Pages/reactor">Docs</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/contact">Contact</a>
+            <a href="<?php echo URLROOT; ?>/rss">RSS</a>
         </li>
 
         <li class="btn-login">

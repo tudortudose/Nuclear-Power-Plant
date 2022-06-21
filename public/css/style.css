@@ -6,6 +6,11 @@ html, body {
     top: 0;
     bottom: 0;
     font-family: 'Lato', sans-serif;
+    background: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .top-nav {
@@ -17,7 +22,7 @@ html, body {
     padding: 0;
     position: absolute;
     right: 6%;
-    top: 2%;
+    top: 3%;
 }
 
 .top-nav ul li {
@@ -37,10 +42,11 @@ html, body {
 }
 
 #section-landing {
-    background: url('../img/banner.jpg');
+    /* background: url('../img/banner.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background: transparent;
     height: 100%;
     width: 100%;
 }
@@ -147,12 +153,12 @@ input::placeholder {
 
 
 .pulse {
-    left: 4%;
+    left: 3%;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
-    top: 10px;
+    top: 2%;
     width: 100px;
     height: 80px;
 }
@@ -224,4 +230,31 @@ input::placeholder {
 .pulse .pulse_bar:nth-child(10) {
     background-color: rgb(255, 0, 221);
     animation-delay: 1s;
+}
+
+@media (max-width: 680px){
+    .pulse{
+        top:0%;
+    }
+
+    .wrapper-landing h1{
+        font-size: 34px;
+    }
+
+    .wrapper-landing h2{
+        font-size: 30px;
+    }
+
+    .top-nav ul li{
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 550px){
+    .top-nav ul li{
+        display:block;
+        margin: auto;
+        text-align: center;
+    }
+
 }

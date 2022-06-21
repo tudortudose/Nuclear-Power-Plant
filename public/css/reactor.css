@@ -334,12 +334,83 @@ svg {
   align-self: center;
 }
 
-@media (max-width: 610px) {
+@media (max-width: 1130px){
+  .reactor_container{
+    top: 15%;
+  }
+
+   #reactor_container_image_pp {
+    max-width: 800px;
+  } 
+}
+
+@media (max-width: 830px){
+  .reactor_panel{
+    flex-direction: column;
+  }
+
+  #reactor_container_image_pp {
+    max-width: 600px;
+  } 
+
+  .reactor_control{
+    align-self: center;
+  }
+
+  .reactor_additional{
+    align-self:center;
+    margin-top: 6%;
+  }
+}
+
+@media (max-width: 625px) {
+  #reactor_container_image_pp {
+    max-width: 500px;
+  } 
+
   .label {
     display: none;
   }
 
   .slidershell {
     margin: 0;
+  }
+}
+
+@media (max-width: 550px){
+  .reactor_container{
+    top: 25%;
+  }
+}
+
+@media (max-width: 500px){
+  #reactor_container_image_pp {
+    max-width: 400px;
+  } 
+
+  .reactor_additional{
+    margin-top: 20%;
+  }
+}
+
+@media (max-width: 420px){
+  #reactor_container_image_pp {
+    max-width: 250px;
+  } 
+}
+
+@media (max-width: 380px){
+  .slider{
+    width: 80%; 
+  }
+
+  .input[type="range"]{
+    width: 80%;
+  }
+}
+
+@media (max-height: 640px){
+  .reactor_container{
+    top: 35%;
   }
 }

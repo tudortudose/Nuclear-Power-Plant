@@ -1,4 +1,10 @@
 <?php
+//redirectare user catre pagina de logare:
+if (!isset($_SESSION['user_id'])) {
+    header("location: " . URLROOT . '/users/register');
+    exit;
+}
+
 require APPROOT . '/views/includes/head.php';
 ?>
 <link rel="stylesheet" href="<?php echo URLROOT ?> /public/css/map.css" />

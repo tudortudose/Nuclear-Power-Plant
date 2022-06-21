@@ -1,4 +1,10 @@
 <?php
+//redirectare user catre pagina de logare:
+if (!isset($_SESSION['user_id'])) {
+    header("location: " . URLROOT . '/users/register');
+    exit;
+}
+header("Cache-Control: max-age=31536000");
 require APPROOT . '/views/includes/head.php';
 ?>
 <link rel="stylesheet" href="<?php echo URLROOT ?> /public/css/reactor.css" />
@@ -9,7 +15,11 @@ require APPROOT . '/views/includes/head.php';
     ?>
     <div class="reactor_container">
         <div class="reactor_container_image">
-            <img src="<?php echo URLROOT ?> /public/img/pp.gif">
+            <!-- <img alt="powerplant_running" id="reactor_container_image_pp" src="<?php echo URLROOT ?> /public/img/pp.gif"> -->
+            <video id="reactor_container_image_pp" autoplay loop muted playsinline>
+                <source src="<?php echo URLROOT ?> /public/img/pp.webm" type="video/webm">
+                <source src="<?php echo URLROOT ?> /public/img/pp.mpeg" type="video/mpeg">
+            </video>
         </div>
 
         <div class="reactor_panel">
@@ -24,6 +34,7 @@ require APPROOT . '/views/includes/head.php';
                         <div class="sliderthumb" id="sliderthumb1"></div>
 
                         <input class="slider" id="slider1" type="range" min="0" max="100" value="0" oninput="showValue(value,1);" onchange="showValue(value,1);" />
+                        <label for="slider1">Input cooling power</label>
                     </div>
                     <div class="reactor_input_label high">High Power</div>
                 </div>
@@ -37,6 +48,7 @@ require APPROOT . '/views/includes/head.php';
                         <div class="sliderthumb" id="sliderthumb2"></div>
 
                         <input class="slider" id="slider2" type="range" min="0" max="100" value="0" oninput="showValue(value,2);" onchange="showValue(value,2);" />
+                        <label for="slider2">Input core temperature</label>
                     </div>
                     <div class="reactor_input_label high">High Power</div>
                 </div>
@@ -50,6 +62,7 @@ require APPROOT . '/views/includes/head.php';
                         <div class="sliderthumb" id="sliderthumb3"></div>
 
                         <input class="slider" id="slider3" type="range" min="0" max="100" value="0" oninput="showValue(value,3);" onchange="showValue(value,3);" />
+                        <label for="slider3">Input energy output</label>
                     </div>
                     <div class="reactor_input_label high">High Power</div>
                 </div>
@@ -79,7 +92,7 @@ require APPROOT . '/views/includes/head.php';
                     <h2>Initiate &rarr;</h2>
                     <!-- <button onclick="location.href='<?php //echo URLROOT 
                                                             ?>/index';" class="reactor_button_plus" id="reactor_btn"></button> -->
-                    <button class="reactor_button_plus" id="reactor_btn"></button>
+                    <button aria-label="initiate_configuration" class="reactor_button_plus" id="reactor_btn"></button>
                 </div>
             </div>
         </div>
@@ -89,19 +102,19 @@ require APPROOT . '/views/includes/head.php';
             <span class="close">&times;</span>
             <p>Monitoring current nuclear power-plant..</p>
             <canvas id="weather_chart"></canvas><br>
-            <button id="weather_chart_export">
+            <button aria-label="export_weather" id="weather_chart_export">
                 Export to PNG
             </button><br>
             <canvas id="reactor_config_chart"></canvas><br>
-            <button id="reactor_config_chart_export">
+            <button aria-label="export_config" id="reactor_config_chart_export">
                 Export to PNG
             </button><br>
             <canvas id="efficiency_chart"></canvas><br>
-            <button id="efficiency_chart_export">
+            <button aria-label="export_efficiency" id="efficiency_chart_export">
                 Export to PNG
             </button><br>
             <canvas id="health_chart"></canvas><br>
-            <button id="health_chart_export">
+            <button aria-label="export_health" id="health_chart_export">
                 Export to PNG
             </button><br>
         </div>

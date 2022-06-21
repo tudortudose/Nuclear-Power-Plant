@@ -72,7 +72,7 @@ btn.onclick = function () {
   }
 
   xhr.open(
-    "POST",
+    "PUT",
     "http://localhost/NuclearGitProject/Nuclear-Power-Plant/states/insert?id_centrala=" +
       idCentrala +
       "&temperatura_nucleu=" +
