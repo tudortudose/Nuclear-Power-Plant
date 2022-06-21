@@ -8,9 +8,9 @@
     <meta name="theme-color" content="#673AB6" >
     <meta name="description" content="Authors: Alexandra U., Tudor P., Tudor T.">
     <title><?php echo SITENAME; ?></title>
-    <link rel="apple-touch-icon" href="<?php echo URLROOT; ?> /public/img/ppicon.png">
-    <link rel="icon" href="<?php echo URLROOT; ?> /public/img/ppicon.png" />
-    <link rel="stylesheet" href="<?php echo URLROOT; ?> /public/css/style.css">
+    <link rel="apple-touch-icon" href="<?php echo URLROOT; ?>/public/img/ppicon.png">
+    <link rel="icon" href="<?php echo URLROOT; ?>/public/img/ppicon.png" />
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
 </head>
 
 <body>

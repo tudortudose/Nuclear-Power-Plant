@@ -1,7 +1,7 @@
 <?php
 require APPROOT . '/views/includes/head.php';
 ?>
-<link rel="stylesheet" href="<?php echo URLROOT ?> /public/css/about.css" />
+<link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/about.css" />
 
 <div id="section-landing">
     <?php
@@ -17,7 +17,7 @@ require APPROOT . '/views/includes/head.php';
                             <span>Nuclear Senior Reactor Operator</span>
                         </h2>
                         <div class="about_card_content_image_box">
-                            <img src="<?php echo URLROOT ?> /public/img/ale.jpg" alt="Alexandra">
+                            <img src="<?php echo URLROOT ?>/public/img/ale.jpg" alt="Alexandra">
                         </div>
                         <div class="about_card_form">
                             <div class="about_card_form_email">
@@ -46,7 +46,7 @@ require APPROOT . '/views/includes/head.php';
                             <span>Nuclear Systems Engineer</span>
                         </h2>
                         <div class="about_card_content_image_box">
-                            <img src="<?php echo URLROOT ?> /public/img/me.jpg" alt="TudorP">
+                            <img src="<?php echo URLROOT ?>/public/img/me.jpg" alt="TudorP">
                         </div>
                         <div class="about_card_form">
                             <div class="about_card_form_email">
@@ -75,7 +75,7 @@ require APPROOT . '/views/includes/head.php';
                             <span>Radiation Maintenance Expert</span>
                         </h2>
                         <div class="about_card_content_image_box">
-                            <img src="<?php echo URLROOT ?> /public/img/dos.jpg" alt="TudorT">
+                            <img src="<?php echo URLROOT ?>/public/img/dos.jpg" alt="TudorT">
                         </div>
                         <div class="about_card_form">
                             <div class="about_card_form_email">

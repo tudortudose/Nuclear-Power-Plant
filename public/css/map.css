@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html,body{
+    overflow-x: hidden;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -62,8 +66,8 @@ body {
 
 .search-container {
     position: absolute;
-    top: 8px;
-    left: 10px;
+    top: 10%;
+    left: 3%;
 }
 
 .search-container input[type=text] {
@@ -102,7 +106,7 @@ body {
     font-family: Inter, sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    line-height: 1.5hv;
+    line-height: 1.5vh;
     margin: 0;
     padding: .5rem 1rem;
     text-align: center;
@@ -255,3 +259,22 @@ body {
 .place-it:focus {
     outline: none;
 }
+
+@media (max-height: 650px){
+    .search-container{
+        top:15%;
+    }
+}
+
+@media (max-height: 580px){
+    .search-container{
+        top: 25%;
+    }
+}
+
+@media (max-width: 410px){
+    .search-container{
+        top:160px;
+    }
+}
+

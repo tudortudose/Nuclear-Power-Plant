@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 
 require APPROOT . '/views/includes/head.php';
 ?>
-<link rel="stylesheet" href="<?php echo URLROOT ?> /public/css/map.css" />
+<link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/map.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div id="section-landing">
@@ -48,7 +48,7 @@ require APPROOT . '/views/includes/head.php';
                 </p>
                 <input id="input4" type="text" name="putere_reactor" placeholder="putere_reactor (GW)" />
 
-                <input id="input5" type="file" name="ppImage" placeholder="image" />
+                <input id="input5" type="file" name="ppImage" />
                 <button class="place-it">Place it on the map</button>
             </div>
         </div>
@@ -63,7 +63,7 @@ require APPROOT . '/views/includes/head.php';
             <input id="modal_input2" type="text" name="numar_reactoare" placeholder="numar_reactoare" />
             <input id="modal_input3" type="text" name="putere_reactor" placeholder="putere_reactor" />
 
-            <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="imgTry" width="200" height="200">
+            <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="imgTry" width="200" height="200" alt="default_img">
 
         </div>
     </div>
@@ -73,6 +73,5 @@ require APPROOT . '/views/includes/head.php';
 
 <script src="<?php echo URLROOT ?>/public/js/map.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiYEdMn9-RjmDrpLu6-UbLdB6Er0UZWR0
-        &map_ids=451dc5b4c648ff34&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiYEdMn9-RjmDrpLu6-UbLdB6Er0UZWR0&map_ids=451dc5b4c648ff34&callback=initMap">
 </script>

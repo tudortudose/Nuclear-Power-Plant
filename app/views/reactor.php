@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 header("Cache-Control: max-age=31536000");
 require APPROOT . '/views/includes/head.php';
 ?>
-<link rel="stylesheet" href="<?php echo URLROOT ?> /public/css/reactor.css" />
+<link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/reactor.css" />
 
 <div id="section-landing">
     <?php
@@ -15,10 +15,10 @@ require APPROOT . '/views/includes/head.php';
     ?>
     <div class="reactor_container">
         <div class="reactor_container_image">
-            <!-- <img alt="powerplant_running" id="reactor_container_image_pp" src="<?php echo URLROOT ?> /public/img/pp.gif"> -->
+            <!-- <img alt="powerplant_running" id="reactor_container_image_pp" src="<?php echo URLROOT ?>/public/img/pp.gif"> -->
             <video id="reactor_container_image_pp" autoplay loop muted playsinline>
-                <source src="<?php echo URLROOT ?> /public/img/pp.webm" type="video/webm">
-                <source src="<?php echo URLROOT ?> /public/img/pp.mpeg" type="video/mpeg">
+                <source src="<?php echo URLROOT ?>/public/img/pp.webm" type="video/webm">
+                <source src="<?php echo URLROOT ?>/public/img/pp.mpeg" type="video/mpeg">
             </video>
         </div>
 
@@ -70,15 +70,15 @@ require APPROOT . '/views/includes/head.php';
                     <defs>
                         <filter id="goo1">
                             <feGaussianBlur id="blur1" in="SourceGraphic" result="blur1" stdDeviation="10" />
-                            <feColorMatrix in="blur1" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
+                            <feColorMatrix in="blur1" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
                         </filter>
                         <filter id="goo2">
                             <feGaussianBlur id="blur2" in="SourceGraphic" result="blur2" stdDeviation="10" />
-                            <feColorMatrix in="blur2" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
+                            <feColorMatrix in="blur2" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
                         </filter>
                         <filter id="goo3">
                             <feGaussianBlur id="blur3" in="SourceGraphic" result="blur3" stdDeviation="10" />
-                            <feColorMatrix in="blur3" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
+                            <feColorMatrix in="blur3" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -9.5" result="goo" />
                         </filter>
                     </defs>
                 </svg>
