@@ -21,14 +21,7 @@ class Pages extends Controller {
     }
 
     public function map() {
-        $data = [
-            'authorIdError' => '',
-            'nameError' => '',
-            'reactorCountError' => '',
-            'reactorPowerError' => ''
-        ];
-
-        $this->view('map', $data);
+        $this->view('map');
     }
 
     public function reactor(){

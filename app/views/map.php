@@ -27,6 +27,8 @@ require APPROOT . '/views/includes/head.php';
         </div>
     </div>
 
+    <!--img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="imgTry" width="200" height="200"-->
+
     <div class="create-plant-container">
         <div class="create-plant" id="create-plant-info">
             <h1>Create Power Plant</h1>
@@ -46,9 +48,23 @@ require APPROOT . '/views/includes/head.php';
                 </p>
                 <input id="input4" type="text" name="putere_reactor" placeholder="putere_reactor (GW)" />
 
-                <!--input id="input5" type="file" name="imagine" placeholder="image" /-->
+                <input id="input5" type="file" name="ppImage" placeholder="image" />
                 <button class="place-it">Place it on the map</button>
             </div>
+        </div>
+    </div>
+
+    <div id="reactor_modal" class="modal">
+        <div class="reactor_modal_content">
+            <span class="close">&times;</span>
+            <h3>Power Plant Info</h3>
+
+            <input id="modal_input1" type="text" name="nume" placeholder="nume" />
+            <input id="modal_input2" type="text" name="numar_reactoare" placeholder="numar_reactoare" />
+            <input id="modal_input3" type="text" name="putere_reactor" placeholder="putere_reactor" />
+
+            <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="imgTry" width="200" height="200">
+
         </div>
     </div>
 

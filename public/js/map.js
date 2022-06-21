@@ -8,6 +8,12 @@ let map;
 let searchInput = document.getElementById("searchInput");
 let searchBtn = document.getElementById("searchBtn");
 
+var modal = document.getElementById("reactor_modal");
+var span = document.getElementsByClassName("close")[0];
+let modal_name = document.getElementById("modal_input1");
+let modal_reactorCount = document.getElementById("modal_input2");
+let modal_reactorPower = document.getElementById("modal_input3");
+
 let name = document.getElementById("input2");
 let reactorCount = document.getElementById("input3");
 let reactorPower = document.getElementById("input4");
@@ -23,6 +29,10 @@ let markerList = [];
 let infoWindowList = [];
 
 display_pps();
+
+span.addEventListener("click", () => {
+    modal.style.display = "none";
+});
 
 searchBtn.addEventListener("click", () => {
     let searchText = searchInput.value;
@@ -58,7 +68,7 @@ function verifyPpName() {
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
             let response = this.responseText;
-            if (response == 'false') {
+            if (response == "false") {
                 can_place = true;
                 create_plant.style.visibility = "hidden";
                 add_button_pressed = false;
@@ -150,12 +160,34 @@ function constructPowerPlant(lat, lng, ppName) {
     });
 
     marker.addListener("dblclick", () => {
-        window.location.href = "http://localhost/NuclearGitProject/Nuclear-Power-Plant/Pages/ppInfo?name=" + ppName;
+        //window.location.href = "http://localhost/NuclearGitProject/Nuclear-Power-Plant/Pages/ppInfo?name=" + ppName;
+        loadPpInfoModal(ppName);
     });
 
     markerList.push(marker);
 
     infoWindowList.push(infowindow);
+}
+
+function loadPpInfoModal(ppName) {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+            let response = JSON.parse(this.responseText);
+            modal_name.value = response['name'];
+            modal_reactorCount.value = response['reactorCount'];
+            modal_reactorPower.value = response['reactorPower'];
+            let imgTry = document.getElementById('imgTry');
+            imgTry.src = "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/ppImgs/" + response['name'] + ".jpg";
+            modal.style.display = "block";
+        }
+    });
+
+    xhr.open("GET", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/getByName?name=" + ppName);
+
+    xhr.send();
 }
 
 function getInsertParams(alt, lat, lng) {
@@ -193,14 +225,19 @@ function sendInsertReq(alt, lat, lng) {
 
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
+            console.log(this.responseText);
             constructPowerPlant(lat, lng, name.value);
         }
     });
 
     xhr.open("POST", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/insert?" + getInsertParams(alt, lat, lng), true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    xhr.send();
+    const files = document.querySelector('[name=ppImage]').files;
+
+    const formData = new FormData();
+    formData.append('ppImage', files[0]);
+
+    xhr.send(formData);
 }
 
 function setAltitude(lat, lng) {
