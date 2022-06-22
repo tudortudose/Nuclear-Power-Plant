@@ -8,13 +8,9 @@
     echo "<?xml version='1.0' encoding='UTF-8'?>
     <rss version='2.0'>
     <channel>
-    <name></name>
-    <reactorCount></reactorCount>
-    <reactorPower></reactorPower>
-    <altitude></altitude>
-    <latitude></latitude>
-    <longetitude></longetitude>
-    <language>en-us</language>";
+    <title></title>
+    <link></link>
+    <link></description>";
 
     foreach($result as $row){
         $name = $row['name'];
@@ -24,15 +20,15 @@
         $latitude = $row['laltitude'];
         $longitude = $row['longitude'];
 
-        
+        $photo = "'http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/ppImgs/" . $name . ".jpg'";
+
         echo "<item>
-        <name>$name</name>
-        <reactorCount>$reactorCount</reactorCount>
-        <reactorPower>$reactorPower</reactorPower>
-        <altitude>$altitude</altitude>
-        <latitude>$latitude</latitude>
-        <longetitude>$longitude</longetitude>
-            </item>";
+        <title>$name</title>
+        <link></link>
+        <description>
+        <img alt='' border='0' src=" . $photo . "
+        width='1' height='1' />
+        </description>";
     }
 
     echo "</channel></rss>";
