@@ -27,6 +27,12 @@
         <li>
             <a href="<?php echo URLROOT; ?>/rss">RSS</a>
         </li>
+        <li>
+            <a href="<?php echo URLROOT; ?>/Pages/swagger_doc">OpenAPI</a>
+        </li>
+        <li>
+            <a href="<?php echo URLROOT; ?>/Pages/documentation">Documentation</a>
+        </li>
 
         <li class="btn-login">
             <?php if (isset($_SESSION['user_id'])) : ?>

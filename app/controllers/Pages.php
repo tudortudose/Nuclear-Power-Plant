@@ -31,4 +31,20 @@ class Pages extends Controller {
 
         $this->view('reactor');
     }
+
+    public function swagger_doc(){
+        $data = [
+            'title' => 'Nuclear Power Plant Specifications'
+        ];
+
+        $this->view('swagger_doc');
+    }
+
+    public function documentation(){
+        $data = [
+            'title' => 'Nuclear Power Plant Specifications'
+        ];
+
+        $this->view('documentation');
+    }
 }
