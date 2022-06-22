@@ -1,7 +1,13 @@
 <?php
+//redirectare user catre pagina de logare:
+if (!isset($_SESSION['user_id'])) {
+    header("location: " . URLROOT . '/users/register');
+    exit;
+}
+
 require APPROOT . '/views/includes/head.php';
 ?>
-<link rel="stylesheet" href="<?php echo URLROOT ?> /public/css/map.css" />
+<link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/map.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div id="section-landing">
@@ -77,6 +83,5 @@ require APPROOT . '/views/includes/head.php';
 
 <script src="<?php echo URLROOT ?>/public/js/map.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiYEdMn9-RjmDrpLu6-UbLdB6Er0UZWR0
-        &map_ids=451dc5b4c648ff34&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiYEdMn9-RjmDrpLu6-UbLdB6Er0UZWR0&map_ids=451dc5b4c648ff34&callback=initMap">
 </script>

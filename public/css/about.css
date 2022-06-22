@@ -1,134 +1,203 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.about_cards{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.wrapper_about_landing {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  top: 15%;
 }
 
-.about_card{
-    position: relative;
-    width: 350px;
-    height: 85px;
-    background: rgba(57,140,192,1);
-    border-radius: 20px;
-    filter: drop-shadow(-20px 20px 40px #398cc055);
-    transition: 0.5s ease-in-out;
+.wrapper-landing h2 {
+  font-size: 42px;
+  color: #f2f2f2;
+  opacity: 0.6;
+  margin: 0;
+  font-weight: 100;
 }
 
-.about_card.active{
-    height: 420px;
+.about_cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.about_card_toggle{
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 60px;
-    background: rgba(57,140,192,1);
-    border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-    cursor: pointer;
+.about_card {
+  position: relative;
+  width: 350px;
+  height: 85px;
+  background: rgba(57, 140, 192, 0);
+  border-radius: 20px;
+  filter: drop-shadow(-20px 20px 40px #398cc055);
+  transition: 0.5s ease-in-out;
 }
 
-.about_card_toggle::before{
-    content: '';
-    position: absolute;
-    left: -34px;
-    width: 35px;
-    height:35px;
-    background: transparent;
-    border-top-right-radius: 35px;
-    box-shadow: 11px -10px 0 10px rgba(57,140,192,1);
+.about_card.active {
+  height: 650px;
 }
 
-.about_card_toggle::after{
-    content: '';
-    position: absolute;
-    right: -34px;
-    width: 35px;
-    height:35px;
-    background: transparent;
-    border-top-left-radius: 35px;
-    box-shadow: -11px -10px 0 10px rgba(57,140,192,1);
+.about_card_toggle {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 60px;
+  background: rgba(57, 140, 192, 0);
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  cursor: pointer;
 }
 
-.about_card_toggle span{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-70%) rotate(405deg);
-    width: 10px;
-    height: 10px;
-    border-bottom: 3px solid #fff;
-    border-right: 3px solid #fff;
-    transition: 0.5s ease-in-out;
+.about_card_toggle::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border-top-right-radius: 35px;
+  box-shadow: 11px -10px 0 10px rgba(57, 140, 192, 0);
 }
 
-.about_card.active .about_card_toggle span{
-    transform: translate(-50%,-70%) rotate(225deg);
+.about_card_toggle::after {
+  content: "";
+  position: absolute;
+  right: -34px;
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border-top-left-radius: 35px;
+  box-shadow: -11px -10px 0 10px rgba(57, 140, 192, 0);
 }
 
-.about_card_content_box{
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
+.about_card_toggle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%) rotate(405deg);
+  width: 10px;
+  height: 10px;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transition: 0.5s ease-in-out;
 }
 
-.about_card_content_box .about_card_content{
-    position: relative;
-    padding: 20px;
-    text-align: center;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.about_card.active .about_card_toggle span {
+  transform: translate(-50%, -70%) rotate(225deg);
 }
 
-.about_card_content_box .about_card_content h2{
-    color: #fff;
-    font-weight: 500;
-    font-size: 1.25em;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    line-height:1.1em;
+.about_card_content_box {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
-.about_card_content_box .about_card_content h2 span{
-    font-size:  0.75em;
-    font-weight: 400px;
-    text-transform: initial;
+.about_card_content_box .about_card_content {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.about_card_content_image_box{
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background: #fff;
-    margin-top: 40px;
-    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.15);
+.about_card_content_box .about_card_content h2 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.1em;
 }
 
-.about_card_content_image_box img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 100% 20%;
+.about_card_content_box .about_card_content h2 span {
+  font-size: 0.75em;
+  font-weight: 400;
+  text-transform: initial;
+}
+
+.about_card_content_image_box {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  margin-top: 40px;
+  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.about_card_content_image_box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 100% 20%;
+}
+
+.about_card_form {
+  padding: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about_card_form_email {
+  position: relative;
+  color: #fff;
+}
+
+.about_card_email {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  color: #fff;
+  background-color: transparent;
+  outline: 2px solid #fff;
+}
+
+.about_card_email_input_label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.about_card_email:focus ~ .about_card_email_input_label,
+.about_card_email:valid ~ .about_card_email_input_label {
+  transform: translate(0, -30px) scale(0.8);
+  color: #2bc3f1;
+}
+
+.about_card_email:is(:focus, :valid) {
+  outline-color: #2bc3f1;
+}
+
+@media (max-height: 800px){
+    .wrapper_about_landing{
+        top: 20%;
+    }
+}
+
+@media (max-width: 850px){
+    .about_cards{
+        flex-direction: column;
+        height: 2200px;
+    }
 }

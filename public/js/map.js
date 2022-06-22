@@ -423,8 +423,8 @@ function initMap() {
     let infowindow = new google.maps.InfoWindow({});
 
     infowindow.open(map);
-    infowindow.setPosition({ lat: 46.247974047191015, lng: 26.7737612614087 });
-    infowindow.setContent("<p>Hello</p> <p>this</p> is me  ewas");
+    //infowindow.setPosition({ lat: 46.247974047191015, lng: 26.7737612614087 });
+    //infowindow.setContent("<p>Hello</p> <p>this</p> is me  ewas");
 
     // Add a listener for the click event. Display the elevation for the LatLng of
     // the click inside the infowindow.

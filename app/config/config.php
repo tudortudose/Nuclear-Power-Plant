@@ -13,3 +13,5 @@
 
     //Sitename
     define('SITENAME', 'Nuclear Power Plant Manager');
+
+    //precompiled db string (+parameters binding) = anti-sql injection

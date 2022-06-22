@@ -19,7 +19,7 @@
             
         <input type="submit" name="submit" value="Sign In" />
 
-        <a class="login_help" href="#">Forgotten Password?</a>
+        <a class="login_help" href="<?php echo URLROOT; ?>/users/register">Forgotten Password?</a>
         <a class="login_help" href="<?php echo URLROOT; ?>/users/register">Create an Account</a>
     </form>
     </div>

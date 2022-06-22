@@ -21,7 +21,7 @@ class States extends Controller
         //     echo "<script>console.log('Debug in pp: " . $param . "' );</script>";
         // }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = [
                 'id_centrala' => trim($params['id_centrala']),
                 'temperatura_nucleu' => trim($params['temperatura_nucleu']),

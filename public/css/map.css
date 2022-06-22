@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -159,8 +164,8 @@ body {
 
 .search-container {
     position: absolute;
-    top: 8px;
-    left: 10px;
+    top: 10%;
+    left: 3%;
 }
 
 .search-container input[type=text] {
@@ -306,4 +311,43 @@ body {
 
 .create-plant-form input::placeholder {
     letter-spacing: 1px;
+}
+
+.place-it {
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 240px;
+    height: 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background: none;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    border: none;
+    margin-top: 15px;
+    background-color: var(--left-color);
+}
+
+.place-it:focus {
+    outline: none;
+}
+
+@media (max-height: 650px) {
+    .search-container {
+        top: 15%;
+    }
+}
+
+@media (max-height: 580px) {
+    .search-container {
+        top: 25%;
+    }
+}
+
+@media (max-width: 410px) {
+    .search-container {
+        top: 160px;
+    }
 }
