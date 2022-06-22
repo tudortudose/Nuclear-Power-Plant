@@ -22,16 +22,13 @@
             <a href="<?php echo URLROOT; ?>/Pages/map">Map</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/Pages/reactor">Docs</a>
-        </li>
-        <li>
-            <a href="<?php echo URLROOT; ?>/rss">RSS</a>
+            <a href="<?php echo URLROOT; ?>/Pages/documentation">Docs</a>
         </li>
         <li>
             <a href="<?php echo URLROOT; ?>/Pages/swagger_doc">OpenAPI</a>
         </li>
         <li>
-            <a href="<?php echo URLROOT; ?>/Pages/documentation">Documentation</a>
+            <a href="<?php echo URLROOT; ?>/Pages/feed">RSS</a>
         </li>
 
         <li class="btn-login">

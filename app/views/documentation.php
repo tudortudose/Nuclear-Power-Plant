@@ -239,6 +239,15 @@
            pentru a face un status in legatura cu productivitatea centralei, iar cel de al patrulea grafic se ocupa cu starea curenta 
            de functionare a centralei pentru a determina necesitatea unei reconfigurari sau a unei reparatii. Toate statisticile vor putea 
            fi salvate ulterior de catre utilizator sub forma de imagini cu extensia png.
+
+           <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/comparison.png" width="227" height="350" alt="Scholarly HTML logo">
+           <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/functionality.png" width="227" height="350" alt="Scholarly HTML logo">
+           <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/health.png" width="227" height="350" alt="Scholarly HTML logo">
+           <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/reactors_health.png" width="227" height="350" alt="Scholarly HTML logo">
         </p>
     </section>
 

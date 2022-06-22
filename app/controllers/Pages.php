@@ -47,4 +47,12 @@ class Pages extends Controller {
 
         $this->view('documentation');
     }
+
+    public function feed(){
+        $data = [
+            'title' => 'Nuclear Power Plant Specifications'
+        ];
+
+        $this->view('feed');
+    }
 }
