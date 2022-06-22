@@ -25,24 +25,24 @@ require APPROOT . '/views/includes/head.php';
 
     <div class="create-plant-container">
         <div class="create-plant" id="create-plant-info">
-            <h1>Create Power Plant</h1>
+            <h1>Create <br> Power Plant</h1>
             <div class="create-plant-form">
                 <p id="invalidName">
 
                 </p>
-                <input id="input2" type="text" name="nume" placeholder="nume" />
+                <input id="input2" type="text" name="name" placeholder="name" />
 
                 <p id="invalidReactorCount">
 
                 </p>
-                <input id="input3" type="text" name="numar_reactoare" placeholder="numar_reactoare" />
+                <input id="input3" type="text" name="number_of_reactors" placeholder="number_of_reactors" />
 
                 <p id="invalidReactorPower">
 
                 </p>
-                <input id="input4" type="text" name="putere_reactor" placeholder="putere_reactor (GW)" />
+                <input id="input4" type="text" name="reactor_power" placeholder="reactor_power (GW)" />
 
-                <input id="input5" type="file" name="ppImage" placeholder="image" />
+                <input id="input5" type="file" name="ppImage" />
                 <button class="place-it">Place it on the map</button>
             </div>
         </div>
@@ -51,14 +51,24 @@ require APPROOT . '/views/includes/head.php';
     <div id="reactor_modal" class="modal">
         <div class="reactor_modal_content">
             <span class="close">&times;</span>
-            <h3>Power Plant Info</h3>
+            <h1>Power Plant Info</h1>
 
-            <input id="modal_input1" type="text" name="nume" placeholder="nume" />
-            <input id="modal_input2" type="text" name="numar_reactoare" placeholder="numar_reactoare" />
-            <input id="modal_input3" type="text" name="putere_reactor" placeholder="putere_reactor" />
+            <input id="modal_input4" type="text" name="id" placeholder="id" readonly="readonly" />
+            <input id="modal_input5" type="text" name="author_id" placeholder="author_id" readonly="readonly" />
+            <p id="modal_invalidName">
+            </p>
+            <input id="modal_input1" type="text" name="name" placeholder="name" readonly="readonly" />
+            <p id="modal_invalidReactorCount">
+            </p>
+            <input id="modal_input2" type="text" name="number_of_reactors" placeholder="number_of_reactors" readonly="readonly" />
+            <p id="modal_invalidReactorPower">
+            </p>
+            <input id="modal_input3" type="text" name="reactor_power" placeholder="reactor_power" readonly="readonly" />
+            <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="modalImg" width="200" height="200">
 
-            <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="imgTry" width="200" height="200">
-
+            <button id="modal_delete">Delete</button>
+            <button id="modal_edit_save">Edit</button>
+            <button id="modal_config">Configuration</button>
         </div>
     </div>
 

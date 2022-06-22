@@ -8,24 +8,13 @@ class PowerPlants extends Controller
 
     public function insert($params)
     {
-        echo "<script>console.log('Debug session user: " . $_SESSION['user_id'] . "' );</script>";
-        
-        echo "<script>console.log('Debug image: " . count($_FILES) . "' );</script>";
-        foreach($_FILES as $file){
-            
-        echo "<script>console.log('Debug image: " . $file . "' );</script>";
-        }
+        //echo "<script>console.log('Debug session user: " . $_SESSION['user_id'] . "' );</script>";
         
         $filepath = APPROOT . "/../public/ppImgs/" . $params['name'] . '.jpg';
         echo "<script>console.log('Debug Objects 1: " . $_FILES["ppImage"]["tmp_name"] . "' );</script>";
         echo "<script>console.log('Debug Objects 2: " . $filepath . "' );</script>";
 
         move_uploaded_file($_FILES["ppImage"]["tmp_name"], $filepath);
-
-        foreach ($params as $param) {
-
-            echo "<script>console.log('Debug in pp: " . $param . "' );</script>";
-        }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
@@ -81,8 +70,6 @@ class PowerPlants extends Controller
     public function getAll()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
-            //echo "<script>console.log('Debug Data nume: " . "In getAll" . "' );</script>";
 
             $results = $this->plantModel->getAll();
 
