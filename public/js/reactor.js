@@ -422,6 +422,24 @@ function health_chart() {
         a.download = "health_chart.png";
         a.click();
       };
+
+      //web notifications in case health is low:
+      if(healthData.length>0){
+        var health_check = healthData[healthData.length-1];
+        console.log(health_check);
+        if(health_check>=75){
+          alert('Power Plant Reactors working normally.');
+        }
+        else if(health_check>=50){
+          alert('Power Plant Reactors working at half power.');
+        }
+        else if(health_check>=25){
+          alert('Power Plant Reactors are running abnormally low.');
+        }
+        else{
+          alert('Power Plant Reactors in critical situation, please invoke maintenance.');
+        }
+      }
     }
   });
 

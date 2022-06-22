@@ -1,3 +1,6 @@
 {
-    "name": "vendor/name"
+    "name": "vendor/name",
+    "require": {
+        "firebase/php-jwt": "^6.2"
+    }
 }
