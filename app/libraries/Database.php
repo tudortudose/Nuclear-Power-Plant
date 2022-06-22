@@ -67,4 +67,9 @@
         public function rowCount() {
             return $this->statement->rowCount();
         }
+
+        public function resultSetAssoc() {
+            $this->execute();
+            return $this->statement->fetchAll(PDO::FETCH_ASSOC);
+        }
     }

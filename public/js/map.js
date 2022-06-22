@@ -13,6 +13,15 @@ var span = document.getElementsByClassName("close")[0];
 let modal_name = document.getElementById("modal_input1");
 let modal_reactorCount = document.getElementById("modal_input2");
 let modal_reactorPower = document.getElementById("modal_input3");
+let modal_id = document.getElementById("modal_input4");
+let modal_authorId = document.getElementById("modal_input5");
+let modal_edit_save = document.getElementById("modal_edit_save");
+let modal_config = document.getElementById("modal_config");
+let modal_delete = document.getElementById("modal_delete");
+
+let modal_invalidName = document.getElementById("modal_invalidName");
+let modal_invalidReactorCount = document.getElementById("modal_invalidReactorCount");
+let modal_invalidReactorPower = document.getElementById("modal_invalidReactorPower");
 
 let name = document.getElementById("input2");
 let reactorCount = document.getElementById("input3");
@@ -27,8 +36,156 @@ let altitudeErrorInfoWindow = null;
 
 let markerList = [];
 let infoWindowList = [];
+let currentUpdMarker;
+let currentUpdInfoWindow;
 
 display_pps();
+
+function deletePpConstruction() {
+    currentUpdMarker.setMap(null);
+    currentUpdInfoWindow.close();
+}
+
+function getDeleteParams() {
+    let params = "id=";
+    params += modal_id.value;
+
+    return params;
+}
+
+function sendDeleteRequest() {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+            deletePpConstruction();
+            modal.style.display = "none";
+        }
+    });
+
+    xhr.open("DELETE", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/delete?" + getDeleteParams(), true);
+
+    xhr.send();
+}
+
+function getUpdateParams() {
+    let params = "id=";
+    params += modal_id.value;
+    params += "&";
+
+    params += "name=";
+    params += modal_name.value;
+    params += "&";
+
+    params += "reactorCount=";
+    params += modal_reactorCount.value;
+    params += "&";
+
+    params += "reactorPower=";
+    params += modal_reactorPower.value;
+
+    return params;
+}
+
+function updatePpConstruction() {
+    currentUpdMarker.title = modal_name.value;
+    currentUpdInfoWindow.setOptions({
+        content: "My power " + modal_name.value,
+    })
+}
+
+function sendUpdateRequest() {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+            updatePpConstruction();
+        }
+    });
+
+    xhr.open("PATCH", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/update?" + getUpdateParams(), true);
+
+    xhr.send();
+}
+
+function verifyModalPpName() {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+            let response = this.responseText;
+            if (response == "false") {
+                sendUpdateRequest();
+            } else {
+                if (JSON.parse(this.responseText).id == modal_id.value) {
+                    sendUpdateRequest();
+                } else {
+                    modal_invalidName.innerHTML = 'This name already exists!';
+                }
+            }
+        }
+    });
+
+    xhr.open("GET", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/getByName?name=" + modal_name.value);
+
+    xhr.send();
+}
+
+function verifyModalInput() {
+    let ok = 1;
+    modal_invalidName.innerHTML = '';
+    modal_invalidReactorCount.innerHTML = '';
+    modal_invalidReactorPower.innerHTML = '';
+    if (modal_name.value == '') {
+        console.log("aici")
+        modal_invalidName.innerHTML = 'This field is required!';
+        console.log('here')
+        ok = 0;
+    }
+    if (modal_reactorCount.value == '') {
+        modal_invalidReactorCount.innerHTML = 'This field is required!';
+        ok = 0;
+    }
+    if (modal_reactorPower.value == '') {
+        modal_invalidReactorPower.innerHTML = 'This field is required!';
+        ok = 0;
+    }
+    if (ok == 0) return false;
+
+    if (isNaN(parseFloat(modal_reactorCount.value))) {
+        modal_invalidReactorCount.innerHTML = 'This should be a number!';
+        ok = 0;
+    }
+
+    if (isNaN(parseFloat(modal_reactorPower.value))) {
+        modal_invalidReactorPower.innerHTML = 'This should be a number!';
+        ok = 0;
+    }
+    if (ok == 0) return false;
+
+    verifyModalPpName();
+}
+
+modal_delete.addEventListener("click", () => {
+    sendDeleteRequest();
+});
+
+modal_edit_save.addEventListener("click", () => {
+    if (modal_edit_save.innerHTML == "Edit") {
+        modal_edit_save.innerHTML = "Save";
+        modal_name.readOnly = false;
+        modal_reactorCount.readOnly = false;
+        modal_reactorPower.readOnly = false;
+        console.log("yey");
+    } else {
+        verifyModalInput();
+    }
+});
 
 span.addEventListener("click", () => {
     modal.style.display = "none";
@@ -142,7 +299,7 @@ function constructPowerPlant(lat, lng, ppName) {
     const marker = new google.maps.Marker({
         position: { lat: lat, lng: lng },
         map,
-        draggable: true,
+        draggable: false,
         title: ppName,
         icon: {
             url: "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/img/plant.png",
@@ -160,8 +317,9 @@ function constructPowerPlant(lat, lng, ppName) {
     });
 
     marker.addListener("dblclick", () => {
-        //window.location.href = "http://localhost/NuclearGitProject/Nuclear-Power-Plant/Pages/ppInfo?name=" + ppName;
-        loadPpInfoModal(ppName);
+        currentUpdMarker = marker;
+        currentUpdInfoWindow = infowindow;
+        loadPpInfoModal(marker['title']);
     });
 
     markerList.push(marker);
@@ -176,11 +334,15 @@ function loadPpInfoModal(ppName) {
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
             let response = JSON.parse(this.responseText);
+
             modal_name.value = response['name'];
             modal_reactorCount.value = response['reactorCount'];
             modal_reactorPower.value = response['reactorPower'];
-            let imgTry = document.getElementById('imgTry');
-            imgTry.src = "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/ppImgs/" + response['name'] + ".jpg";
+            modal_id.value = response['id'];
+            modal_authorId.value = response['author_id'];
+            let modalImg = document.getElementById('modalImg');
+            modalImg.src = "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/ppImgs/" + response['name'] + ".jpg";
+
             modal.style.display = "block";
         }
     });
