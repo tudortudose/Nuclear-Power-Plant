@@ -33,6 +33,39 @@ class PowerPlant
         }
     }
 
+    public function update($data)
+    {
+        $this->db->query('UPDATE power_plants SET name = :name, reactorCount = :reactorCount, reactorPower = :reactorPower WHERE id=:id');
+
+        //Bind values
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':reactorCount', $data['reactorCount']);
+        $this->db->bind(':reactorPower', $data['reactorPower']);
+        $this->db->bind(':id', $data['id']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function delete($id)
+    {
+        $this->db->query('DELETE FROM power_plants WHERE id=:id');
+
+        //Bind values
+        $this->db->bind(':id', $id);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getById($id)
     {
         $this->db->query('SELECT * FROM power_plants WHERE id=:id');

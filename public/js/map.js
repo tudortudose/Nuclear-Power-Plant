@@ -41,6 +41,35 @@ let currentUpdInfoWindow;
 
 display_pps();
 
+function deletePpConstruction() {
+    currentUpdMarker.setMap(null);
+    currentUpdInfoWindow.close();
+}
+
+function getDeleteParams() {
+    let params = "id=";
+    params += modal_id.value;
+
+    return params;
+}
+
+function sendDeleteRequest() {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+            deletePpConstruction();
+            modal.style.display = "none";
+        }
+    });
+
+    xhr.open("DELETE", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/delete?" + getDeleteParams(), true);
+
+    xhr.send();
+}
+
 function getUpdateParams() {
     let params = "id=";
     params += modal_id.value;
@@ -78,7 +107,7 @@ function sendUpdateRequest() {
         }
     });
 
-    xhr.open("UPDATE", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/update?" + getUpdateParams(), true);
+    xhr.open("PATCH", "http://localhost/NuclearGitProject/Nuclear-Power-Plant/powerplants/update?" + getUpdateParams(), true);
 
     xhr.send();
 }
@@ -142,6 +171,9 @@ function verifyModalInput() {
     verifyModalPpName();
 }
 
+modal_delete.addEventListener("click", () => {
+    sendDeleteRequest();
+});
 
 modal_edit_save.addEventListener("click", () => {
     if (modal_edit_save.innerHTML == "Edit") {
@@ -151,12 +183,6 @@ modal_edit_save.addEventListener("click", () => {
         modal_reactorPower.readOnly = false;
         console.log("yey");
     } else {
-        /*
-        modal_edit_save.innerHTML = "Edit";
-        modal_name.readOnly = true;
-        modal_reactorCount.readOnly = true;
-        modal_reactorPower.readOnly = true;
-        console.log("bau");*/
         verifyModalInput();
     }
 });
@@ -293,7 +319,7 @@ function constructPowerPlant(lat, lng, ppName) {
     marker.addListener("dblclick", () => {
         currentUpdMarker = marker;
         currentUpdInfoWindow = infowindow;
-        loadPpInfoModal(ppName);
+        loadPpInfoModal(marker['title']);
     });
 
     markerList.push(marker);
