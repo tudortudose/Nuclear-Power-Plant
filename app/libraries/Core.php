@@ -1,4 +1,5 @@
 <?php
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/NuclearGitProject/Nuclear-Power-Plant/vendor/autoload.php');
 /*
    * App Core Class
    * Creates URL & loads core controller

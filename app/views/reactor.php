@@ -34,7 +34,7 @@ require APPROOT . '/views/includes/head.php';
                         <div class="sliderthumb" id="sliderthumb1"></div>
 
                         <input class="slider" id="slider1" type="range" min="0" max="100" value="0" oninput="showValue(value,1);" onchange="showValue(value,1);" />
-                        <label for="slider1">Input cooling power</label>
+                        <label for="slider1" class="slider_label">Input cooling power</label>
                     </div>
                     <div class="reactor_input_label high">High Power</div>
                 </div>
@@ -48,7 +48,7 @@ require APPROOT . '/views/includes/head.php';
                         <div class="sliderthumb" id="sliderthumb2"></div>
 
                         <input class="slider" id="slider2" type="range" min="0" max="100" value="0" oninput="showValue(value,2);" onchange="showValue(value,2);" />
-                        <label for="slider2">Input core temperature</label>
+                        <label for="slider2" class="slider_label">Input core temperature</label>
                     </div>
                     <div class="reactor_input_label high">High Power</div>
                 </div>
@@ -62,7 +62,7 @@ require APPROOT . '/views/includes/head.php';
                         <div class="sliderthumb" id="sliderthumb3"></div>
 
                         <input class="slider" id="slider3" type="range" min="0" max="100" value="0" oninput="showValue(value,3);" onchange="showValue(value,3);" />
-                        <label for="slider3">Input energy output</label>
+                        <label for="slider3" class="slider_label">Input energy output</label>
                     </div>
                     <div class="reactor_input_label high">High Power</div>
                 </div>

@@ -1,10 +1,23 @@
 <?php
-class Pages extends Controller {
-    public function __construct() {
+include_once $_SERVER['DOCUMENT_ROOT'] . '/NuclearGitProject/Nuclear-Power-Plant/app/controllers/Users.php';
+
+class Pages extends Controller
+{
+    public function __construct()
+    {
         //$this->userModel = $this->model('User');
+        $authController = new Users();
+
+        $_COOKIE['jwt'] = $_SESSION['jwt'];
+        if (isset($_COOKIE['jwt'])) {
+            $_SERVER['Authorization'] = 'Bearer ' . $_COOKIE['jwt'];
+        }
+        $jwt = $authController->checkJWTExistance();
+        $authController->validateJWT($jwt);
     }
 
-    public function index() {
+    public function index()
+    {
         $data = [
             'title' => 'Home page'
         ];
@@ -12,24 +25,27 @@ class Pages extends Controller {
         $this->view('index', $data);
     }
 
-    public function about() {
+    public function about()
+    {
         $data = [
             'title' => 'About us'
         ];
 
-        $this->view('about');
+        $this->view('about', $data);
     }
 
-    public function map() {
+    public function map()
+    {
         $this->view('map');
     }
 
-    public function reactor(){
+    public function reactor()
+    {
         $data = [
             'title' => 'Nuclear Power Plant Specifications'
         ];
 
-        $this->view('reactor');
+        $this->view('reactor', $data);
     }
 
     public function swagger_doc(){

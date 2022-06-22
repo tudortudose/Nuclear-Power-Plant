@@ -334,6 +334,10 @@ svg {
   align-self: center;
 }
 
+.slider_label{
+  display: none;
+}
+
 @media (max-width: 1130px){
   .reactor_container{
     top: 15%;

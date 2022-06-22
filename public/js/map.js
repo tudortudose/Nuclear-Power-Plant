@@ -119,7 +119,8 @@ function verifyModalPpName() {
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
             let response = this.responseText;
-            if (response == "false") {
+            console.log(response)
+            if (response.trim() == "false") {
                 sendUpdateRequest();
             } else {
                 if (JSON.parse(this.responseText).id == modal_id.value) {
@@ -170,6 +171,10 @@ function verifyModalInput() {
 
     verifyModalPpName();
 }
+
+modal_config.addEventListener("click", () => {
+    window.open("http://localhost/NuclearGitProject/Nuclear-Power-Plant/Pages/reactor?id=" + modal_id.value);
+});
 
 modal_delete.addEventListener("click", () => {
     sendDeleteRequest();
@@ -225,11 +230,13 @@ function verifyPpName() {
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
             let response = this.responseText;
-            if (response == "false") {
+            console.log(response)
+            if (response.trim() == "false") {
                 can_place = true;
                 create_plant.style.visibility = "hidden";
                 add_button_pressed = false;
             } else {
+                console.log(response)
                 invalidName.innerHTML = 'This name already exists!';
             }
         }
