@@ -29,13 +29,42 @@
 
         xhr1.addEventListener("readystatechange", function() {
             if (this.readyState === 4) {
-                console.log(this.statusText+' '+JSON.parse(this.responseText)[0]);
+                console.log(this.statusText + ' ' + JSON.parse(this.responseText)[0]);
                 health = JSON.parse(this.responseText)[0].reactoare_active;
                 health = health > 0 ? health - 1 : 0;
                 coreTemperature = JSON.parse(this.responseText)[0].temperatura_nucleu;
                 coolTemperature = JSON.parse(this.responseText)[0].putere_racire;
                 powerOutput = JSON.parse(this.responseText)[0].putere_energie;
                 powerDemand = JSON.parse(this.responseText)[0].putere_ceruta;
+
+                var xhrHealthUpdate = new XMLHttpRequest();
+                xhrHealthUpdate.withCredentials = false;
+                xhrHealthUpdate.addEventListener("readystatechange", function() {
+                    if (this.readyState === 4) {
+
+                    }
+                });
+                xhrHealthUpdate.open(
+                    "PUT",
+                    "http://localhost/NuclearGitProject/Nuclear-Power-Plant/states/insert?id_centrala=" +
+                    idCentrala + 
+                    "&temperatura_nucleu=" +
+                    coreTemperature + 
+                    "&putere_racire="+
+                    coolTemperature +
+                    "&putere_produsa=" +
+                    powerOutput * coreTemperature * coolTemperature +
+                    "&putere_ceruta=" +
+                    powerDemand +
+                    "&putere_energie=" + 
+                    powerOutput + 
+                    "&reactoare_active=" +
+                    health ,
+                    true
+                );
+                xhrHealthUpdate.setRequestHeader("Content-Type", "application/json");
+
+                xhrHealthUpdate.send();
 
                 //get request for geographic coordinates for weather:
                 var latitude;

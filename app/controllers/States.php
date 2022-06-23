@@ -14,7 +14,8 @@ class States extends Controller
             'putere_racire' => '',
             'putere_produsa' => '',
             'putere_ceruta' => '',
-            'putere_energie' => ''
+            'putere_energie' => '',
+            'reactoare_active' => ''
         ];
 
         // foreach ($params as $param) {
@@ -28,7 +29,8 @@ class States extends Controller
                 'putere_racire' => trim($params['putere_racire']),
                 'putere_produsa' => trim($params['putere_produsa']),
                 'putere_ceruta' => trim($params['putere_ceruta']),
-                'putere_energie' => trim($params['putere_energie'])
+                'putere_energie' => trim($params['putere_energie']),
+                'reactoare_active' => trim($params['reactoare_active'])
             ];
 
             if (

@@ -8,8 +8,8 @@ class State{
 
     public function insert($data){
         $this->db->query('INSERT INTO pp_states ' .
-        '(id_centrala,temperatura_nucleu,putere_racire,putere_produsa,putere_ceruta,putere_energie) ' .
-        'VALUES(:id_centrala,:temperatura_nucleu,:putere_racire,:putere_produsa,:putere_ceruta,:putere_energie)');
+        '(id_centrala,temperatura_nucleu,putere_racire,putere_produsa,putere_ceruta,putere_energie,reactoare_active) ' .
+        'VALUES(:id_centrala,:temperatura_nucleu,:putere_racire,:putere_produsa,:putere_ceruta,:putere_energie,:reactoare_active)');
 
         $this->db->bind(':id_centrala', $data['id_centrala']);
         $this->db->bind(':temperatura_nucleu', $data['temperatura_nucleu']);
@@ -17,6 +17,7 @@ class State{
         $this->db->bind(':putere_produsa', $data['putere_produsa']);
         $this->db->bind(':putere_ceruta', $data['putere_ceruta']);
         $this->db->bind(':putere_energie',$data['putere_energie']);
+        $this->db->bind(':reactoare_active',$data['reactoare_active']);
 
         if($this->db->execute()){
             return true;
@@ -28,7 +29,7 @@ class State{
 
     public function update($data){
         $this->db->query('UPDATE pp_states SET ' .
-        'temperatura_nucleu=:temperatura_nucleu,putere_racire=:putere_racire,'.
+        'temperatura_nucleu=:temperatura_nucleu,reactoare_active=:reactoare_active,putere_racire=:putere_racire,'.
         'putere_produsa=:putere_produsa,putere_ceruta=:putere_ceruta,'.
         'putere_energie=:putere_energie WHERE id_centrala=:id_centrala');
 
@@ -38,6 +39,7 @@ class State{
         $this->db->bind(':putere_produsa', $data['putere_produsa']);
         $this->db->bind(':putere_ceruta', $data['putere_ceruta']);
         $this->db->bind(':putere_energie',$data['putere_energie']);
+        $this->db->bind(':reactoare_active',$data['reactoare_active']);
 
         if($this->db->execute()){
             return true;
