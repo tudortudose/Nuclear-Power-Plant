@@ -16,7 +16,7 @@ body {
   text-align: center;
   margin: 0 auto;
   width: 100%;
-  top: 15%;
+  top: 10%;
 }
 
 .wrapper-landing h2 {
@@ -44,7 +44,7 @@ body {
 }
 
 .about_card.active {
-  height: 700px;
+  height: 800px;
 }
 
 .about_card_toggle {

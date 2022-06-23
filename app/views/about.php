@@ -31,6 +31,12 @@ require APPROOT . '/views/includes/head.php';
                             <div class="about_card_form_email">
                                 <input type="text" id="about_card_message_input1" required class="about_card_email">
                                 <label for="about_card_message_input1" class="about_card_email_input_label">Message</label>
+                            </div><br><br><br>
+                            <div class="reactor_button_container">
+                                <h2>Send &rarr;</h2>
+                                <!-- <button onclick="location.href='<?php //echo URLROOT 
+                                                                        ?>/index';" class="reactor_button_plus" id="reactor_btn"></button> -->
+                                <button aria-label="initiate_configuration" class="reactor_button_plus" id="reactor_btn1"></button>
                             </div>
                         </div>
                     </div>
@@ -60,12 +66,12 @@ require APPROOT . '/views/includes/head.php';
                             <div class="about_card_form_email">
                                 <input type="text" id="about_card_message_input2" required class="about_card_email">
                                 <label for="about_card_message_input2" class="about_card_email_input_label">Message</label>
-                            </div>
+                            </div><br><br><br>
                             <div class="reactor_button_container">
-                                <h2>Initiate &rarr;</h2>
+                                <h2>Send &rarr;</h2>
                                 <!-- <button onclick="location.href='<?php //echo URLROOT 
                                                                         ?>/index';" class="reactor_button_plus" id="reactor_btn"></button> -->
-                                <button aria-label="initiate_configuration" class="reactor_button_plus" id="reactor_btn"></button>
+                                <button aria-label="initiate_configuration" class="reactor_button_plus" id="reactor_btn2"></button>
                             </div>
                         </div>
                     </div>
@@ -95,6 +101,12 @@ require APPROOT . '/views/includes/head.php';
                             <div class="about_card_form_email">
                                 <input type="text" id="about_card_message_input3" required class="about_card_email">
                                 <label for="about_card_message_input3" class="about_card_email_input_label">Message</label>
+                            </div><br><br><br>
+                            <div class="reactor_button_container">
+                                <h2>Send &rarr;</h2>
+                                <!-- <button onclick="location.href='<?php //echo URLROOT 
+                                                                        ?>/index';" class="reactor_button_plus" id="reactor_btn"></button> -->
+                                <button aria-label="initiate_configuration" class="reactor_button_plus" id="reactor_btn3"></button>
                             </div>
                         </div>
                     </div>
