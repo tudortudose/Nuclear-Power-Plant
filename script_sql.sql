@@ -46,6 +46,7 @@ CREATE TABLE `pp_states` (
   `temperatura_nucleu` int DEFAULT NULL,
   `putere_ceruta` int DEFAULT NULL,
   `putere_produsa` int DEFAULT NULL,
+  `reactoare_active` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_centrala` (`id_centrala`),
   CONSTRAINT `pp_states_ibfk_1` FOREIGN KEY (`id_centrala`) REFERENCES `power_plants` (`id`) ON DELETE CASCADE
