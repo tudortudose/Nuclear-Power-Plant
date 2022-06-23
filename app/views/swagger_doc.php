@@ -2,7 +2,8 @@
     require_once '../app/require.php';
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
     <meta charset="UTF-8">
     <title>Swagger UI</title>

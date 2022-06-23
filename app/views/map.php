@@ -70,7 +70,7 @@ require APPROOT . '/views/includes/head.php';
             <p id="modal_invalidReactorPower">
             </p>
             <input id="modal_input3" type="text" name="reactor_power" placeholder="reactor_power" readonly="readonly" />
-            <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="modalImg" width="200" height="200">
+            <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> alt="pp-image" id="modalImg" width="200" height="200">
 
             <button aria-label="delete-nuclear-pp" id="modal_delete">Delete</button>
             <button aria-label="save-nuclear-pp" id="modal_edit_save">Edit</button>
