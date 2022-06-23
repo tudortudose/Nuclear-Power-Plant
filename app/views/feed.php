@@ -29,9 +29,9 @@
 
         //echo "<script>console.log('Debug Objects 2: " . $resultPowerPlant->putere_racire . "' );</script>";
 
-        if ($resultPowerPlant !== false && $resultPowerPlant->num_rows > 0){
+        if ($resultPowerPlant !== false){
             $putere_racire = $resultPowerPlant->putere_racire;
-            $putere_energie = $resultPowerPlant->putere_enrgie;
+            $putere_energie = $resultPowerPlant->putere_energie;
             $temperatura_nucleu = $resultPowerPlant->temperatura_nucleu;
             $putere_ceruta = $resultPowerPlant->putere_ceruta;
             $putere_produsa = $resultPowerPlant->putere_produsa;

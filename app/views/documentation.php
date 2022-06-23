@@ -241,21 +241,48 @@
            fi salvate ulterior de catre utilizator sub forma de imagini cu extensia png.
 
            <br><br>
-           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/comparison.png" width="227" height="350" alt="Scholarly HTML logo">
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/comparison.png" width="227" height="350" alt="stats">
            <br><br>
-           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/functionality.png" width="227" height="350" alt="Scholarly HTML logo">
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/functionality.png" width="227" height="350" alt="stats">
            <br><br>
-           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/health.png" width="227" height="350" alt="Scholarly HTML logo">
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/health.png" width="227" height="350" alt="stats">
            <br><br>
-           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/reactors_health.png" width="227" height="350" alt="Scholarly HTML logo">
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/reactors_health.png" width="227" height="350" alt="stats">
         </p>
     </section>
 
 </section>
 
-<section id="functionalitiesexplained" role="doc-interfaces">
+<section id="perform" role="doc-perform">
     <h2>Performanata</h2>
     <p>
-        La capitolul performanta, aplicatia a obtinut un scor de ... pe aplicatia Measure.
+        La capitolul performanta, aplicatia a obtinut urmatoarele scoruri:
+            <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/login_performance.png" width="227" height="350" alt="perform">
+           <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/index_performance.png" width="227" height="350" alt="perform">
+           <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/config_performance.png" width="227" height="350" alt="perform">
+           <br><br>
+           <img style="width: 100%" src= "http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/doc/resources/map_performance.png" width="227" height="350" alt="perfor">
+    </p>
+</section>
+
+<section id="refrences" role="doc-refrences">
+    <h2>Referinte</h2>
+    <p>
+        <a href="url">https://github.com/firebase/php-jwt</a>
+        <br>
+        <a href="url">https://www.chartjs.org/docs/latest/</a>
+        <br>
+        <a href="url">https://stackoverflow.com/questions/7959673/directory-structure-for-mvc</a>
+        <br>
+        <a href="url">https://ithemes.com/blog/what-is-the-htaccess-file/</a>
+        <br>
+        <a href="url">https://www.php.net/manual/en/book.pdo.php</a>
+        <br>
+        <a href="url">https://www.w3schools.com/php/php_cookies.asp</a>
+        <br>
+        <a href="url">http://lotus.itservices.manchester.ac.uk:8080</a>
     </p>
 </section>
