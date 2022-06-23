@@ -37,3 +37,16 @@ CREATE TABLE configurations (
   KEY id_centrala (id_centrala),
   CONSTRAINT configurations_ibfk_1 FOREIGN KEY (id_centrala) REFERENCES power_plants (id) ON DELETE CASCADE
 );
+
+CREATE TABLE `pp_states` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_centrala` int unsigned DEFAULT NULL,
+  `putere_racire` int DEFAULT NULL,
+  `putere_energie` int DEFAULT NULL,
+  `temperatura_nucleu` int DEFAULT NULL,
+  `putere_ceruta` int DEFAULT NULL,
+  `putere_produsa` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_centrala` (`id_centrala`),
+  CONSTRAINT `pp_states_ibfk_1` FOREIGN KEY (`id_centrala`) REFERENCES `power_plants` (`id`) ON DELETE CASCADE
+)

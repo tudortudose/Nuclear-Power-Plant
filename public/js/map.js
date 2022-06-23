@@ -39,6 +39,9 @@ let infoWindowList = [];
 let currentUpdMarker;
 let currentUpdInfoWindow;
 
+let pulse = document.getElementsByClassName('pulse')[0];
+pulse.style.display = "none";
+
 display_pps();
 
 function deletePpConstruction() {

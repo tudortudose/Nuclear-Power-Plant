@@ -61,6 +61,7 @@ require APPROOT . '/views/includes/head.php';
                                 <input type="text" id="about_card_message_input2" required class="about_card_email">
                                 <label for="about_card_message_input2" class="about_card_email_input_label">Message</label>
                             </div>
+                            <!-- <button aria-label="initiate_email" class="about_card_form_submit">Send email</div> -->
                         </div>
                     </div>
                 </div>

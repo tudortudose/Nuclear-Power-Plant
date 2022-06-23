@@ -189,6 +189,20 @@ body {
   outline-color: #2bc3f1;
 }
 
+.about_card_form_submit{
+background:crimson;
+  color:#FFF;
+  width:100%;
+  padding:15px;
+  font-weight:700;
+  opacity:0.8;
+}
+
+.about_card_form_submit:hover{
+  cursor:grab;
+  opacity:1;
+}
+
 @media (max-height: 800px){
     .wrapper_about_landing{
         top: 20%;
