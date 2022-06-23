@@ -232,7 +232,7 @@ input::placeholder {
     animation-delay: 1s;
 }
 
-@media (max-width: 680px){
+@media (max-width: 800px){
     .pulse{
         top:0%;
     }
@@ -250,7 +250,7 @@ input::placeholder {
     }
 }
 
-@media (max-width: 550px){
+@media (max-width: 675px){
     .top-nav ul li{
         display:block;
         margin: auto;

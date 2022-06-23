@@ -248,6 +248,12 @@ body {
 @media (max-width: 850px){
     .about_cards{
         flex-direction: column;
-        height: 2200px;
+        height: 2600px;
     }
+}
+
+@media (max-width: 600px){
+  .wrapper_about_landing{
+    top: 30%;
+  }
 }

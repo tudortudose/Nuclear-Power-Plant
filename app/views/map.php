@@ -18,12 +18,12 @@ require APPROOT . '/views/includes/head.php';
     require APPROOT . '/views/includes/navigation.php';
     ?>
 
-    <button class="add-plant">Add nuclear power plant</button>
+    <button aria-label="add-nuclear-plant" class="add-plant">Add nuclear power plant</button>
 
     <div class="search-container">
         <div>
             <input id="searchInput" type="text" placeholder="Search.." name="search">
-            <button id="searchBtn" type="submit"><i class="fa fa-search"></i></button>
+            <button aria-label="search-nuclear-plant" id="searchBtn" type="submit"><i class="fa fa-search"></i></button>
         </div>
     </div>
 
@@ -49,7 +49,7 @@ require APPROOT . '/views/includes/head.php';
                 <input id="input4" type="text" name="reactor_power" placeholder="reactor_power (GW)" />
 
                 <input id="input5" type="file" name="ppImage" />
-                <button class="place-it">Place it on the map</button>
+                <button aria-label="place-nuclear-on-map" class="place-it">Place it on the map</button>
             </div>
         </div>
     </div>
@@ -72,9 +72,9 @@ require APPROOT . '/views/includes/head.php';
             <input id="modal_input3" type="text" name="reactor_power" placeholder="reactor_power" readonly="readonly" />
             <img src=<?php echo URLROOT . "/public/ppImgs/default.jpg"; ?> id="modalImg" width="200" height="200">
 
-            <button id="modal_delete">Delete</button>
-            <button id="modal_edit_save">Edit</button>
-            <button id="modal_config">Configuration</button>
+            <button aria-label="delete-nuclear-pp" id="modal_delete">Delete</button>
+            <button aria-label="save-nuclear-pp" id="modal_edit_save">Edit</button>
+            <button aria-label="config-page-pp" id="modal_config">Configuration</button>
         </div>
     </div>
 
