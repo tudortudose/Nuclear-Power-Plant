@@ -1,6 +1,6 @@
 <?php
     $db = new Database;
-    $db->query('SELECT name, reactorCount, reactorPower, altitude, latitude, longitude FROM power_plants');
+    $db->query('SELECT id, name, reactorCount, reactorPower, altitude, latitude, longitude FROM power_plants');
     $result = $db->resultSetAssoc();
 
     header( "Content-type: text/xml");
@@ -13,6 +13,7 @@
     <description></description>";
 
     foreach($result as $row){
+        $id = $row['id'];
         $name = $row['name'];
         $reactorCount = $row['reactorCount'];
         $reactorPower = $row['reactorPower'];
@@ -20,7 +21,19 @@
         $latitude = $row['latitude'];
         $longitude = $row['longitude'];
 
+        $db->query("SELECT putere_racire, putere_energie, temperatura_nucleu, putere_ceruta, putere_produsa FROM pp_states 
+                    WHERE id_centrala = " . $id);
+        $resultPowerPlant = $db->single();
+
+        $putere_racire = $resultPowerPlant['putere_racire'];
+        $putere_energie = $resultPowerPlant['putere_enrgie'];
+        $temperatura_nucleu = $resultPowerPlant['temperatura_nucleu'];
+        $putere_ceruta = $resultPowerPlant['putere_ceruta'];
+        $putere_produsa = $resultPowerPlant['putere_produsa'];
+        
+
         $photo = "'http://localhost/NuclearGitProject/Nuclear-Power-Plant/public/ppImgs/" . $name . ".jpg'";
+
 
         echo "<item>
         <title>$name</title>
@@ -32,6 +45,11 @@
             Altitudinea centralei: " . $altitude . " <br />
             Latitudine: " . $latitude . " <br />
             Longitude: " . $longitude . " <br /> 
+            Putere racire: " . $putere_racire . " <br /> 
+            Putere enrgie: " . $putere_energie . " <br /> 
+            Temperatura nucleu: " . $temepartura_nucleu . " <br /> 
+            Putere ceruta: " . $putere_ceruta . " <br /> 
+            Putere produsa: " . $putere_produsa . " <br /> 
             </p>
         <img alt='' border='0' src=" . $photo . "
         width='1' height='1' />
